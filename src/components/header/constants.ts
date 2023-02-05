@@ -1,1 +1,1 @@
-export const TITLE = 'HabbitsTracker';
+export const TITLE = 'HabitsTracker';

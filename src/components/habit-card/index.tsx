@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 import { Icon } from "../icon";
-import { HabbitCardProps } from "./types";
+import { HabitCardProps } from "./types";
 import { ProgressBar } from "../progress-bar";
 import { ActionButtons } from "../action-buttons";
-import './habbit-card.css';
+import './habit-card.css';
 
-export const HabbitCard = ({id, title, icon, currentValue, targetValue, color}: HabbitCardProps) => {
+export const HabitCard = ({id, title, icon, currentValue, targetValue, color}: HabitCardProps) => {
 
     const progressBarTitle = useMemo(() => `${currentValue}/${targetValue}`
     , [currentValue, targetValue]);
@@ -18,16 +18,16 @@ export const HabbitCard = ({id, title, icon, currentValue, targetValue, color}: 
     }
 
     return (
-        <div className="habbit-card">
+        <div className="habit-card">
             <Icon iconName={icon} color={color} />
-            <h3 className="habbit-card_title">{title}</h3>
+            <h3 className="habit-card_title">{title}</h3>
             <ProgressBar
                 title={progressBarTitle}
                 value={progressBarValue}
                 color={color}
                 onClickAdd={onClickAdd}
             />
-            <ActionButtons habbitId={id} color={color} hovered/>
+            <ActionButtons habitId={id} color={color} hovered/>
         </div>
     )
 }

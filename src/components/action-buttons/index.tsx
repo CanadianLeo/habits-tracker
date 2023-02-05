@@ -4,31 +4,31 @@ import { ActionButtonsProps } from "./types";
 import "./actionButton.css";
 import '../../colors.css';
 
-export const ActionButtons = ({ habbitId, color, hovered }: ActionButtonsProps) => {
+export const ActionButtons = ({ habitId, color, hovered }: ActionButtonsProps) => {
     const ref = useRef(null);
     const [show, setShow] = useState(false);
 
-    const onClickDecrement = (habbitId: string) => {
+    const onClickDecrement = (habitId: string) => {
         // TODO: use fetch
-        console.log('decrement ' + habbitId);
+        console.log('decrement ' + habitId);
         setShow(false);
     }
 
-    const onClickDelete = (habbitId: string) => {
+    const onClickDelete = (habitId: string) => {
         // TODO: use fetch
-        console.log('delete ' + habbitId);
+        console.log('delete ' + habitId);
         setShow(false);
     }
 
-    const onClickEdit = (habbitId: string) => {
+    const onClickEdit = (habitId: string) => {
         // TODO: use fetch
-        console.log('edit ' + habbitId);
+        console.log('edit ' + habitId);
         setShow(false);
     }
 
-    const onClickReset = (habbitId: string) => {
+    const onClickReset = (habitId: string) => {
         // TODO: use fetch
-        console.log('reset ' + habbitId);
+        console.log('reset ' + habitId);
         setShow(false);
     }
 
@@ -45,19 +45,19 @@ export const ActionButtons = ({ habbitId, color, hovered }: ActionButtonsProps) 
         {
             id: 1,
             title: "Уменьшить на 1",
-            onClick: () => onClickDecrement(habbitId)
+            onClick: () => onClickDecrement(habitId)
         }, {
             id: 2,
             title: "Изменить",
-            onClick: () => onClickEdit(habbitId)
+            onClick: () => onClickEdit(habitId)
         }, {
             id: 3,
             title: "Сбросить до 0",
-            onClick: () => onClickReset(habbitId)
+            onClick: () => onClickReset(habitId)
         }, {
             id: 4,
             title: "Удалить",
-            onClick: () => onClickDelete(habbitId)
+            onClick: () => onClickDelete(habitId)
         },
     ];
     

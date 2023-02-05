@@ -1,5 +1,5 @@
-export const fetchDeleteHabbit = async (habbitId: string) => {
-    const url = `http://localhost:3001/delete-habbit?id=${habbitId}`;
+export const fetchDeleteHabit = async (habitId: string) => {
+    const url = `http://localhost:3001/delete-habit?id=${habitId}`;
     const response = await fetch(url, {mode:'cors'});
     
     if (response.ok) {

@@ -12,7 +12,7 @@
       "uuid": "79d6b45e-c319-44fd-84a6-14cf7196c3e3",
       "documentation": "Get all habbit",
       "method": "get",
-      "endpoint": "get-habbits",
+      "endpoint": "get-habits",
       "responses": [
         {
           "uuid": "6023e048-5400-428c-85c2-02eaf3700278",
@@ -39,7 +39,7 @@
       "uuid": "6b1f4acf-57fc-41a5-877a-cec763203a3d",
       "documentation": "Delete habbit",
       "method": "delete",
-      "endpoint": "delete-habbit",
+      "endpoint": "delete-habit",
       "responses": [
         {
           "uuid": "f7a38bd6-9c21-4a4d-b7f8-e9cfe3c88394",
@@ -66,7 +66,7 @@
       "uuid": "13f26871-e4eb-4c8c-89b4-6ab4d30a5da2",
       "documentation": "Edit habbit",
       "method": "post",
-      "endpoint": "edit-habbit",
+      "endpoint": "edit-habit",
       "responses": [
         {
           "uuid": "aaf21870-c0a5-4fe2-886f-f7cfc914e20c",

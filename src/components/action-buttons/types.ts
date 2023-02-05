@@ -1,7 +1,7 @@
 import { Colors } from "../../constants";
 
 export type ActionButtonsProps = {
-    habbitId: string;
+    habitId: string;
     hovered: boolean;
     color: Colors;
 }

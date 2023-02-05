@@ -1,8 +1,9 @@
 import { Colors } from "../../constants";
 
-export type HabbitCardProps = {
+export type Habit = {
     id: string;
-    title: string;
+    name: string;
+    description: string;
     icon: string;
     currentValue: number;
     targetValue: number;
