@@ -33,12 +33,12 @@ export const IconPicker = () => {
 
     return (
         <div ref={ref} className="icon-picker_wrapper">
-            <div onClick={onClickHandler}>
+            <div onClick={onClickHandler} className="icon-picker_main-icon">
                 <Icon iconName={currentIcon} color={currentColor} size='medium'/>
             </div>
             {show && 
                 <div className="icon-picker_dropdown">
-                    <h4>{COLORS_TITLE}</h4>
+                    <h4 className="icon-picker_title">{COLORS_TITLE}</h4>
                     <div className="icon-picker_dropdown-list-wrapper">
                         {ColorsList.map(item => 
                             <div key={item} className={`icon-picker_color ${item === currentColor ? 'picked': ''}`} onClick={() => onChangeColorHandler(item)}>
@@ -46,7 +46,7 @@ export const IconPicker = () => {
                             </div>
                         )}
                     </div>
-                    <h4>{ICONS_TITLE}</h4>
+                    <h4 className="icon-picker_title">{ICONS_TITLE}</h4>
                     <div className="icon-picker_dropdown-list-wrapper">
                         {IconsList.map(item => 
                             <div key={item} className={`icon-picker_color ${item === currentIcon ? 'picked': ''}`} onClick={() => onChangeIconHandler(item)}>

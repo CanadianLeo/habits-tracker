@@ -1,6 +1,11 @@
-.icon-picker_wrapper {  
-    cursor: pointer;
+.icon-picker_wrapper {
     width: 50px;
+}
+.icon-picker_main-icon {
+    cursor: pointer;
+}
+.icon-picker_title {
+    margin: 10px;
 }
 .icon-picker_dropdown {
     width: 256px;

@@ -11,13 +11,17 @@ export const HabbitFrom = ({ onSubmit, title, onSubmitButtonTitle }: HabbitFormP
             <h3 className="habit-form_title">{title}</h3>
             <div className="habit-form_line-wrapper">
                 <div className="habit-form_floating">
-                    <input {...register('name', { required: true })} placeholder="Habit name" className="habit-form_input"/>
+                    <input {...register('name', { required: true })}
+                        placeholder="Habit name"
+                        className="habit-form_input"/>
                     <label className="habit-form_label" htmlFor="name">Habit name</label>
                 </div>
                 <IconPicker />
             </div>
             <div className="habit-form_floating">
-                <textarea {...register('description', { required: true })} placeholder="Habit description" className="habit-form_input habit-form_textarea"/>
+                <textarea {...register('description', { required: true })}
+                    placeholder="Habit description"
+                    className="habit-form_input habit-form_textarea"/>
                 <label className="habit-form_label" htmlFor="description">Habit description</label>
             </div>
             <Periods />
