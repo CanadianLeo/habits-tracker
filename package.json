@@ -1,5 +1,5 @@
 {
-  "name": "first",
+  "name": "habit-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
