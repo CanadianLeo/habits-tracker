@@ -1,0 +1,57 @@
+$color1: #e4b1ff;
+$color2: #ffade2;
+$color3: #ffb4c0;
+$color4: #ffc4a4;
+$color5: #ffd996;
+$color6: #ffd996;
+$color7: #d0ffb9;
+
+.red,
+.red-hovered:hover {
+    background-color: $color1;
+}
+.border-red {
+    border: 2px solid $color1;
+}
+.green,
+.green-hovered:hover {
+    background-color: $color2;
+}
+.border-green {
+    border: 2px solid $color2;
+}
+.blue,
+.blue-hovered:hover {
+    background-color: $color3;
+}
+.border-blue {
+    border: 2px solid $color3;
+}
+.magenta,
+.magenta-hovered:hover {
+    background-color: $color4;
+}
+.border-magenta {
+    border: 2px solid $color4;
+}
+.yellow,
+.yellow-hovered:hover {
+    background-color: $color5;
+}
+.border-yellow {
+    border: 2px solid $color5;
+}
+.lightblue,
+.lightblue-hovered:hover {
+    background-color: $color6;
+}
+.border-lightblue {
+    border: 2px solid $color6;
+}
+.orange,
+.orange-hovered:hover {
+    background-color: $color7;
+}
+.border-orange {
+    border: 2px solid $color7;
+}

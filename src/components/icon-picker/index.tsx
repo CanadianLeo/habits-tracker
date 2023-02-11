@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { useOnClickOutside } from "usehooks-ts";
 import { Icon } from "../icon";
 import { Colors, ColorsList, IconsList, DEFAULT_COLOR, Icons, DEFAULT_ICON } from "../../constants";
-import '../../colors.css';
+import '../../colors.module.scss';
 import './icon-picker.css';
 import { COLORS_TITLE, ICONS_TITLE } from "./constants";
 

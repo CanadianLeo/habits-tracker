@@ -4,18 +4,19 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    background-color: rgb(184, 184, 184);
+    align-items: center;
 }
 
 .button {
     border-radius: 50px;
     width: 151px;
     height: 50px;
-    border: 1px solid red;
+    background-color: #fff;
+    border: 2px solid #000;
     font-size: large;
     cursor: pointer;
 }
 
 .button:hover {
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgb(184, 184, 184);
 }
