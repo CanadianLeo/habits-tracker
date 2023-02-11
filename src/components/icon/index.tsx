@@ -1,8 +1,10 @@
+import cn from 'classnames';
 import { IconProps } from "./types";
-import "./icon.css";
+import colors from "../../colors.module.scss";
+import styles from "./styles.module.scss";
 
 export const Icon = ({iconName, color, size='large'}: IconProps) => {
     return (
-        <div className={`icon ${color} icon-${size}`}>{iconName}</div>
+        <div className={ cn(styles.icon, colors[`${color}`], styles[`icon-${size}`])}>{iconName}</div>
     )
 }

@@ -1,15 +1,24 @@
 import { useEffect, useState } from "react";
-import { HabitCard } from "../habit-card";
 import { fetchHabits } from "./utils/fetch-habits";
 import { Habit } from "./types";
-import "./habits-list.css";
+import { NewHabit } from "../new-habit";
+import { List } from "../list";
+import { Header } from "./components/header";
+import styles from './styles.module.scss';
 
 
 export const HabitsList = () => {
   const [habits, setHabits] = useState<Array<Habit>>([]);
+  const [newHabitShow, setNewHabitShow] = useState(false);
 
   const getHabits = async () => {
     setHabits(await fetchHabits());
+  }
+  const onButtonClick = () => {
+    setNewHabitShow(!newHabitShow)
+  }
+  const onClose = () => {
+    setNewHabitShow(false);
   }
 
   useEffect(() => {
@@ -17,18 +26,10 @@ export const HabitsList = () => {
   }, []);
 
   return (
-    <div className="habits-list_wrapper">
-      {habits.map((item) => 
-        <HabitCard 
-          id={item.id} 
-          key={item.id} 
-          title={item.name} 
-          icon={item.icon} 
-          currentValue={item.currentValue} 
-          targetValue={item.targetValue} 
-          color={item.color} 
-        />
-      )}
+    <div className={ styles.wrapper }>
+      <Header onButtonClick={onButtonClick}/>
+      { newHabitShow && <NewHabit onClose={onClose} /> }
+      <List habits={habits} />
     </div>
   );
 }
