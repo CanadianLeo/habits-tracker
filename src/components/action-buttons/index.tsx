@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { useState, useRef } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 import { ActionButtonsProps } from "./types";
-import "./actionButton.css";
+import styles from "./styles.module.scss";
 import colors from '../../colors.module.scss';
 
 export const ActionButtons = ({ habitId, color, hovered }: ActionButtonsProps) => {
@@ -65,10 +65,10 @@ export const ActionButtons = ({ habitId, color, hovered }: ActionButtonsProps) =
     
     return (
         <div ref={ref} >
-            <button className={ cn('action-button', colors[`border-${color}`], (hovered ? colors[`${color}-hovered`] : ''))} onClick={onClickHandler} >...</button>
-            { show && <div className="action-button_modal-container">
+            <button className={ cn(styles['action-button'], colors[`border-${color}`], (hovered ? colors[`${color}-hovered`] : ''))} onClick={onClickHandler} >...</button>
+            { show && <div className={styles['action-button_modal-container']}>
                 { actions.map((item) => 
-                    <div key={item.id} onClick={item.onClick} className="action-button_action">
+                    <div key={item.id} onClick={item.onClick} className={styles['action-button_action']}>
                         {item.title}
                     </div>
                 )}

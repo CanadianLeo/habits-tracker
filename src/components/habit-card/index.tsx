@@ -3,7 +3,7 @@ import { Icon } from "../icon";
 import { HabitCardProps } from "./types";
 import { ProgressBar } from "../progress-bar";
 import { ActionButtons } from "../action-buttons";
-import './habit-card.css';
+import styles from './styles.module.scss';
 
 export const HabitCard = ({id, title, icon, currentValue, targetValue, color}: HabitCardProps) => {
 
@@ -18,9 +18,9 @@ export const HabitCard = ({id, title, icon, currentValue, targetValue, color}: H
     }
 
     return (
-        <div className="habit-card">
+        <div className={styles['habit-card']}>
             <Icon iconName={icon} color={color} />
-            <h3 className="habit-card_title">{title}</h3>
+            <h3 className={styles['habit-card_title']}>{title}</h3>
             <ProgressBar
                 title={progressBarTitle}
                 value={progressBarValue}
