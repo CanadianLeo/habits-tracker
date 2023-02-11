@@ -72,7 +72,7 @@
     left: 0;
     padding: 10px;
     transform-origin: 0 0;
-    transition: opacity .15s ease-in-out, transform .15s ease-in-out;
+    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
 }
 
 .habit-form_floating .habit-form_input::-moz-placeholder {
@@ -85,12 +85,14 @@
 
 .habit-form_floating .habit-form_input:focus,
 .habit-form_floating .habit-form_input:not(:placeholder-shown) {
-    padding-bottom: .625rem;
+    padding-bottom: 0.625rem;
 }
 
-.habit-form_floating .habit-form_input:focus~.habit-form_label,
-.habit-form_floating .habit-form_input:not(:placeholder-shown)~.habit-form_label {
-    transform: scale(.65) translateY(-23px) translateX(.15rem);
+.habit-form_floating .habit-form_input:focus ~ .habit-form_label,
+.habit-form_floating
+    .habit-form_input:not(:placeholder-shown)
+    ~ .habit-form_label {
+    transform: scale(0.65) translateY(-23px) translateX(0.15rem);
     background-color: #fff;
     padding: 0 5px;
     margin: 10px 5px;

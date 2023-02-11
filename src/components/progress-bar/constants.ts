@@ -1,1 +1,1 @@
-export const ADD_BUTTON_CONTENT = "+";
+export const ADD_BUTTON_CONTENT = '+';

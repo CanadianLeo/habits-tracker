@@ -5,8 +5,8 @@ export enum Colors {
     MAGENTA = 'magenta',
     YELLOW = 'yellow',
     LIGHTBLUE = 'lightblue',
-    ORANGE = 'orange'
-};
+    ORANGE = 'orange',
+}
 
 export const ColorsList: Array<Colors> = [
     Colors.RED,
@@ -32,9 +32,20 @@ export enum Icons {
     J = 'J',
     K = 'K',
     L = 'L',
-};
+}
 
 export const IconsList: Array<Icons> = [
-    Icons.A, Icons.B, Icons.C, Icons.D, Icons.E, Icons.F, Icons.G, Icons.H, Icons.I, Icons.J, Icons.K, Icons.L
+    Icons.A,
+    Icons.B,
+    Icons.C,
+    Icons.D,
+    Icons.E,
+    Icons.F,
+    Icons.G,
+    Icons.H,
+    Icons.I,
+    Icons.J,
+    Icons.K,
+    Icons.L,
 ];
 export const DEFAULT_ICON = Icons.A;

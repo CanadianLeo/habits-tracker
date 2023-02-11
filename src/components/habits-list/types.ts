@@ -1,4 +1,4 @@
-import { Colors } from "../../constants";
+import { Colors } from '../../constants';
 
 export type Habit = {
     id: string;
@@ -8,4 +8,4 @@ export type Habit = {
     currentValue: number;
     targetValue: number;
     color: Colors;
-}
+};

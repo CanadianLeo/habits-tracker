@@ -1,3 +1,1 @@
-export const ACTION_BUTTONS_TITLES = {
-    
-}
+export const ACTION_BUTTONS_TITLES = {};

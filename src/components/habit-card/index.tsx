@@ -1,21 +1,31 @@
-import { useMemo } from "react";
-import { Icon } from "../icon";
-import { HabitCardProps } from "./types";
-import { ProgressBar } from "../progress-bar";
-import { ActionButtons } from "../action-buttons";
+import { useMemo } from 'react';
+import { Icon } from '../icon';
+import { HabitCardProps } from './types';
+import { ProgressBar } from '../progress-bar';
+import { ActionButtons } from '../action-buttons';
 import styles from './styles.module.scss';
 
-export const HabitCard = ({id, title, icon, currentValue, targetValue, color}: HabitCardProps) => {
-
-    const progressBarTitle = useMemo(() => `${currentValue}/${targetValue}`
-    , [currentValue, targetValue]);
-    const progressBarValue = useMemo(() => currentValue / (targetValue / 100) 
-    , [currentValue, targetValue]);
+export const HabitCard = ({
+    id,
+    title,
+    icon,
+    currentValue,
+    targetValue,
+    color,
+}: HabitCardProps) => {
+    const progressBarTitle = useMemo(
+        () => `${currentValue}/${targetValue}`,
+        [currentValue, targetValue]
+    );
+    const progressBarValue = useMemo(
+        () => currentValue / (targetValue / 100),
+        [currentValue, targetValue]
+    );
 
     const onClickAdd = () => {
         // TODO: use fetch
         console.log('add ' + id);
-    }
+    };
 
     return (
         <div className={styles['habit-card']}>
@@ -27,7 +37,7 @@ export const HabitCard = ({id, title, icon, currentValue, targetValue, color}: H
                 color={color}
                 onClickAdd={onClickAdd}
             />
-            <ActionButtons habitId={id} color={color} hovered/>
+            <ActionButtons habitId={id} color={color} hovered />
         </div>
-    )
-}
+    );
+};

@@ -1,6 +1,5 @@
 export const getDateEnding = (day: number) => {
-    if (day === 11 || day === 12) 
-        return 'th';
+    if (day === 11 || day === 12) return 'th';
 
     switch (day % 10) {
         case 0:
@@ -18,4 +17,4 @@ export const getDateEnding = (day: number) => {
         case 3:
             return 'rd';
     }
-}
+};

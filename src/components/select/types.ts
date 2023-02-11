@@ -3,4 +3,4 @@ export type SelectProps<T> = {
     keyValue: keyof T;
     renderValue: keyof T;
     items: Array<T>;
-}
+};
