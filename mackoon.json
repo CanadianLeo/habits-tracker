@@ -88,6 +88,33 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "977fd267-6b55-464f-8b6a-800ba15ffa4e",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "create-habit",
+      "responses": [
+        {
+          "uuid": "1df01e25-28f4-492b-852f-659cfc982c2b",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -102,6 +129,10 @@
     {
       "type": "route",
       "uuid": "13f26871-e4eb-4c8c-89b4-6ab4d30a5da2"
+    },
+    {
+      "type": "route",
+      "uuid": "977fd267-6b55-464f-8b6a-800ba15ffa4e"
     }
   ],
   "proxyMode": false,
