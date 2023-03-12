@@ -5,7 +5,7 @@ export const fetchHabits = () => {
     return async (dispatch: Dispatch<HabitsAction>) => {
         try {
             dispatch({type: ActionTypes.FETCH_HABITS});
-            const url = 'http://localhost:3001/get-habits';
+            const url = 'http://localhost:3001/habits';
             const response = await fetch(url, { mode: 'cors' });
 
             if (response.ok) {

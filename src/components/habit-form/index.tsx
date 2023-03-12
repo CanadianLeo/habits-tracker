@@ -2,14 +2,14 @@ import cn from 'classnames';
 import { useFormContext } from 'react-hook-form';
 import { IconPicker } from '../icon-picker';
 import { Periods } from '../periods';
-import { HabbitFormProps } from './types';
+import { HabitFormProps } from './types';
 import styles from './styles.module.scss';
 
-export const HabbitFrom = ({
+export const HabitForm = ({
     onSubmit,
     title,
     onSubmitButtonTitle,
-}: HabbitFormProps) => {
+}: HabitFormProps) => {
     const { handleSubmit, register } = useFormContext();
     return (
         <form

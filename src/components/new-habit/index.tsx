@@ -1,6 +1,8 @@
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
 import { DEFAULT_COLOR, DEFAULT_ICON } from '../../constants';
-import { HabbitFrom } from '../habit-form';
+import { HabitForm } from '../habit-form';
+import { fetchNewHabit } from './utils/fetch-new-habit';
+import { newHabitMapper } from './utils/new-habit-mapper';
 import {
     CREATE_HABIT_BUTTON_TITLE,
     CREATE_HABIT_TITLE,
@@ -22,7 +24,7 @@ export const NewHabit = ({ onClose }: NewHabitProps) => {
     });
 
     const onSubmit = (data: FieldValues) => {
-        console.log(data);
+        fetchNewHabit(newHabitMapper(data));
         onClose();
     };
 
@@ -33,7 +35,7 @@ export const NewHabit = ({ onClose }: NewHabitProps) => {
                     X
                 </div>
                 <FormProvider {...methods}>
-                    <HabbitFrom
+                    <HabitForm
                         onSubmit={onSubmit}
                         title={CREATE_HABIT_TITLE}
                         onSubmitButtonTitle={CREATE_HABIT_BUTTON_TITLE}

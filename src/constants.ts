@@ -1,24 +1,24 @@
 export enum Colors {
-    RED = 'red',
-    GREEN = 'green',
-    BLUE = 'blue',
-    MAGENTA = 'magenta',
-    YELLOW = 'yellow',
-    LIGHTBLUE = 'lightblue',
-    ORANGE = 'orange',
+    COLOR1 = 'color1',
+    COLOR2 = 'color2',
+    COLOR3 = 'color3',
+    COLOR4 = 'color4',
+    COLOR5 = 'color5',
+    COLOR6 = 'color6',
+    COLOR7 = 'color7',
 }
 
 export const ColorsList: Array<Colors> = [
-    Colors.RED,
-    Colors.GREEN,
-    Colors.BLUE,
-    Colors.MAGENTA,
-    Colors.YELLOW,
-    Colors.LIGHTBLUE,
-    Colors.ORANGE,
+    Colors.COLOR1,
+    Colors.COLOR2,
+    Colors.COLOR3,
+    Colors.COLOR4,
+    Colors.COLOR5,
+    Colors.COLOR6,
+    Colors.COLOR7,
 ];
 
-export const DEFAULT_COLOR = Colors.RED;
+export const DEFAULT_COLOR = Colors.COLOR1;
 export enum Icons {
     A = 'A',
     B = 'B',
