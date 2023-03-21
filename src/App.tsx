@@ -1,4 +1,4 @@
-import { HabitsList } from './components/habits-list';
+import { HabitsList } from './modules/habits-list';
 import { Header } from './components/header';
 
 export const App = () => {

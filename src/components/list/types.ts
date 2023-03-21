@@ -1,5 +1,4 @@
-import React from 'react';
-import { Habit } from '../habits-list/types';
+import { Habit } from "../../modules/habits-list/types";
 
 export type ListProps = {
     habits: Array<Habit>;

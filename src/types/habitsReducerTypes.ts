@@ -1,4 +1,4 @@
-import { Habit } from "../components/habits-list/types";
+import { Habit } from "../modules/habits-list/types";
 
 export enum ActionTypes {
     FETCH_HABITS = 'FETCH_HABITS',

@@ -1,4 +1,4 @@
-import { Habit } from '../../habits-list/types';
+import { Habit } from "../../../modules/habits-list/types";
 
 export const fetchEditHabit = async (habit: Habit) => {
     const url = 'http://localhost:3001/edit-habit';
