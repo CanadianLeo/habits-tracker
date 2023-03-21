@@ -1,6 +1,6 @@
 import { FieldValues } from "react-hook-form";
 import { DEFAULT_COLOR, DEFAULT_ICON } from "../../../constants";
-import { Habit } from "../../../modules/habits-list/types";
+import { Habit } from "../../../types";
 import { getUniqueId } from "../../../utils/get-unique-id";
 
 export const newHabitMapper = (data: FieldValues): Habit => ({

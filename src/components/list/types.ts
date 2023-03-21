@@ -1,4 +1,4 @@
-import { Habit } from "../../modules/habits-list/types";
+import { Habit } from "../../types";
 
 export type ListProps = {
     habits: Array<Habit>;
