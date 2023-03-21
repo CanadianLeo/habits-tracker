@@ -29,7 +29,7 @@ export const HabitsList = () => {
             // strange bug with @types/react
             dispatch<any>(fetchHabits());
         }
-    }, [dispatch, habits]);
+    }, [dispatch]);
 
     return (
         <div className={styles.wrapper}>
