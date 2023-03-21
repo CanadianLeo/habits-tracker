@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 import { fetchNewHabit } from './utils/fetch-new-habit';
 import { newHabitMapper } from './utils/new-habit-mapper';
 import { HabitForm } from '../habit-form';
+import { Dialog } from '../dialog';
 import {
     CREATE_HABIT_BUTTON_TITLE,
     CREATE_HABIT_TITLE,
     NEW_HABIT_FORM_DEFAULT_VALUES,
 } from './constants';
 import { NewHabitProps } from './types';
-import { Dialog } from '../dialog';
 
 export const NewHabit = ({ onClose }: NewHabitProps) => {
     const newHabitForm = useForm({

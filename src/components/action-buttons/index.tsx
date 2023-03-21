@@ -4,6 +4,8 @@ import { useOnClickOutside } from 'usehooks-ts';
 import { ActionButtonsProps } from './types';
 import styles from './styles.module.scss';
 import colors from '../../colors.module.scss';
+import { fetchDeleteHabit } from './utils/fetch-delete-habit';
+import { EditHabit } from '../edit-habit';
 
 export const ActionButtons = ({
     habitId,
@@ -12,26 +14,28 @@ export const ActionButtons = ({
 }: ActionButtonsProps) => {
     const ref = useRef(null);
     const [show, setShow] = useState(false);
+    const [editHabitShow, setEditHabitShow] = useState(false);
 
-    const onClickDecrement = (habitId: string) => {
+    const onClickDecrement = () => {
         // TODO: use fetch
         console.log('decrement ' + habitId);
         setShow(false);
     };
 
-    const onClickDelete = (habitId: string) => {
-        // TODO: use fetch
-        console.log('delete ' + habitId);
+    const onClickDelete = () => {
+        // TODO: add reload habits list
+        fetchDeleteHabit(habitId);
         setShow(false);
     };
 
-    const onClickEdit = (habitId: string) => {
+    const onClickEdit = () => {
         // TODO: use fetch
         console.log('edit ' + habitId);
+        setEditHabitShow(true);
         setShow(false);
     };
 
-    const onClickReset = (habitId: string) => {
+    const onClickReset = () => {
         // TODO: use fetch
         console.log('reset ' + habitId);
         setShow(false);
@@ -49,22 +53,22 @@ export const ActionButtons = ({
         {
             id: 1,
             title: 'Уменьшить на 1',
-            onClick: () => onClickDecrement(habitId),
+            onClick: onClickDecrement,
         },
         {
             id: 2,
             title: 'Изменить',
-            onClick: () => onClickEdit(habitId),
+            onClick: onClickEdit,
         },
         {
             id: 3,
             title: 'Сбросить до 0',
-            onClick: () => onClickReset(habitId),
+            onClick: onClickReset,
         },
         {
             id: 4,
             title: 'Удалить',
-            onClick: () => onClickDelete(habitId),
+            onClick: onClickDelete,
         },
     ];
 
@@ -92,6 +96,9 @@ export const ActionButtons = ({
                         </div>
                     ))}
                 </div>
+            )}
+            {editHabitShow && (
+                <EditHabit habitId={habitId} onClose={() => setEditHabitShow(false)} />
             )}
         </div>
     );

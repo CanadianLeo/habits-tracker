@@ -6,7 +6,7 @@ export const fetchHabits = () => {
         try {
             dispatch({type: ActionTypes.FETCH_HABITS});
             const url = 'http://localhost:3001/habits';
-            const response = await fetch(url, { mode: 'cors' });
+            const response = await fetch(url, { mode: 'cors', method: 'get' });
 
             if (response.ok) {
                 dispatch({type: ActionTypes.FETCH_HABITS_SUCCESS, payload: await response.json()});
