@@ -1,8 +1,10 @@
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
-import { DEFAULT_COLOR, DEFAULT_ICON } from '../../constants';
-import { HabitForm } from '../habit-form';
+import { useDispatch } from 'react-redux';
 import { fetchNewHabit } from './utils/fetch-new-habit';
 import { newHabitMapper } from './utils/new-habit-mapper';
+import { fetchHabits } from '../../store/action-creators/habits';
+import { HabitForm } from '../habit-form';
+import { DEFAULT_COLOR, DEFAULT_ICON } from '../../constants';
 import {
     CREATE_HABIT_BUTTON_TITLE,
     CREATE_HABIT_TITLE,
@@ -12,6 +14,7 @@ import { NewHabitProps } from './types';
 import styles from './styles.module.scss';
 
 export const NewHabit = ({ onClose }: NewHabitProps) => {
+    const dispatch = useDispatch()
     const methods = useForm({
         defaultValues: {
             name: '',
@@ -25,6 +28,7 @@ export const NewHabit = ({ onClose }: NewHabitProps) => {
 
     const onSubmit = (data: FieldValues) => {
         fetchNewHabit(newHabitMapper(data));
+        dispatch<any>(fetchHabits());
         onClose();
     };
 

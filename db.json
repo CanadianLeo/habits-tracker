@@ -1,4 +1,31 @@
 {
   "habits": [
+    {
+      "id": "id01d3d76a0e3ec",
+      "name": "Lol",
+      "description": "Play lol for morgana",
+      "icon": "G",
+      "color": "color7",
+      "currentValue": 0,
+      "targetValue": "5"
+    },
+    {
+      "id": "id9b2ae993cf5c8",
+      "name": "Learn English",
+      "description": "Learn English everyday\nMonday - read book\nTuesady - watch interview",
+      "icon": "B",
+      "color": "color5",
+      "currentValue": 0,
+      "targetValue": 1
+    },
+    {
+      "id": "id16c4d39d2512f",
+      "name": "qwe",
+      "description": "qwe",
+      "icon": "A",
+      "color": "color1",
+      "currentValue": 0,
+      "targetValue": 1
+    }
   ]
 }

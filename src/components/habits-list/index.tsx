@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import { NewHabit } from '../new-habit';
-import { List } from '../list';
 import { Header } from './components/header';
-import styles from './styles.module.scss';
+import { List } from '../list';
 import { fetchHabits } from '../../store/action-creators/habits';
 import { useTypedSelector } from '../../hooks/useRypedSelector';
-import { useDispatch } from 'react-redux';
+import styles from './styles.module.scss';
 
 export const HabitsList = () => {
     const [newHabitShow, setNewHabitShow] = useState(false);
@@ -29,7 +29,7 @@ export const HabitsList = () => {
             // strange bug with @types/react
             dispatch<any>(fetchHabits());
         }
-    }, [dispatch]);
+    }, [dispatch, habits]);
 
     return (
         <div className={styles.wrapper}>
