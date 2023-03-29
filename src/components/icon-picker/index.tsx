@@ -15,9 +15,9 @@ import { COLORS_TITLE, ICONS_TITLE } from './constants';
 import styles from './styles.module.scss';
 
 export const IconPicker = () => {
-    const { setValue } = useFormContext();
-    const [currentColor, setCurrentColor] = useState<Colors>(DEFAULT_COLOR);
-    const [currentIcon, setCurrentIcon] = useState(DEFAULT_ICON);
+    const { setValue, watch } = useFormContext();
+    const [currentColor, setCurrentColor] = useState<Colors>(watch('color') ?? DEFAULT_COLOR);
+    const [currentIcon, setCurrentIcon] = useState(watch('icon') ?? DEFAULT_ICON);
     const [show, setShow] = useState(false);
     const ref = useRef(null);
 
