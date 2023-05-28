@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /habit-tracker/node_modules
+/habit-tracker/dist
 /.pnp
 .pnp.js
 /.vscode
