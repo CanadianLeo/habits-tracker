@@ -7,32 +7,33 @@ export class HabitController {
   constructor(private readonly habitService: HabitService) {}
 
   @Get()
-  getHabits(): Array<HabitDto> {
-    return this.habitService.getHabits();
+  async getHabits(): Promise<Array<HabitDto>> {
+    return await this.habitService.getHabits();
   }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  createHabit(@Body() habit: HabitDto)  {
-    return 'New Habit';
+  async createHabit(@Body() habit: HabitDto)  {
+    return await this.habitService.createHabit(habit);
   }
 
   @Get(':id')
-  getHabitById(@Param('id') id: string): HabitDto {
-    return new HabitDto();
+  async getHabitById(@Param('id') id: string): Promise<HabitDto> {
+    return await this.habitService.getHabit(id);
   }
 
   @Put(':id')
-  updateHabit(
+  async updateHabit(
     @Param('id') id: string,
     @Body() updateHabit: HabitDto
   ) {
-    return `Update Habit ${id}`;
+    return await this.habitService.updateHabit(id, updateHabit);
   }
 
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  removeHabit(@Param('id') id: string) {
-    return `Delete Habit ${id}`;
+  async removeHabit(@Param('id') id: string) {
+    const result = await this.habitService.deleteHabit(id);
+    return result;
   }
 }
