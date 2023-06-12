@@ -1,7 +1,7 @@
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
 import { HabitForm } from '../habit-form';
 import { Dialog } from '../dialog';
-import { useTypedSelector } from '../../hooks/useRypedSelector';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { habitSelector } from '../../store/selectors';
 import { formHabitBuilder } from './utils/form-habit-builder';
 import { fetchEditHabit } from './utils/fetch-edit-habit';

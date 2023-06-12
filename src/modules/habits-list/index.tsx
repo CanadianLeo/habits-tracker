@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchHabits } from '../../store/action-creators/habits';
-import { useTypedSelector } from '../../hooks/useRypedSelector';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { NewHabit } from '../../components/new-habit';
 import { List } from '../../components/list';
 import { Header } from '../../components/habits-list-header';

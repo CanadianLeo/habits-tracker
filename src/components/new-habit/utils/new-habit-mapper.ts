@@ -10,6 +10,6 @@ export const newHabitMapper = (data: FieldValues, habitid?: string): Habit => ({
     icon: data.icon ?? DEFAULT_ICON,
     color: data.color ?? DEFAULT_COLOR,
     currentValue: 0,
-    targetValue: data.count ?? 1,
+    targetValue: +data.count ?? 1,
     period: data.period,
 });
