@@ -1,10 +1,7 @@
 import { Module } from '@nestjs/common';
-import { HabitController } from './habit/habit.controller';
-import { HabitService } from './habit/habit.service';
+import { HabitModule } from './habit/habit.module';
 
 @Module({
-  imports: [],
-  controllers: [HabitController],
-  providers: [HabitService],
+  imports: [HabitModule],
 })
-export class AppModule {}
+export class AppModule { }
