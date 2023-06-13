@@ -1,40 +1,44 @@
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { HabitForm } from '../habit-form';
 import { Dialog } from '../dialog';
+import { newHabitMapper } from '../new-habit/utils/new-habit-mapper';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { habitSelector } from '../../store/selectors';
+import { fetchHabits } from '../../store/action-creators/habits';
 import { formHabitBuilder } from './utils/form-habit-builder';
 import { fetchEditHabit } from './utils/fetch-edit-habit';
-import { newHabitMapper } from '../new-habit/utils/new-habit-mapper';
 import {
-    SAVE_HABIT_BUTTON_TITLE,
-    EDIT_HABIT_TITLE,
+  SAVE_HABIT_BUTTON_TITLE,
+  EDIT_HABIT_TITLE,
 } from './constants';
 import { EditHabitProps } from './types';
 
 export const EditHabit = ({ habitId, onClose }: EditHabitProps) => {
-    const habit = useTypedSelector(habitSelector(habitId));
+  const dispatch = useDispatch();
+  const habit = useTypedSelector(habitSelector(habitId));
 
-    const editHabitForm = useForm({
-        defaultValues: formHabitBuilder(habit[0]),
+  const editHabitForm = useForm({
+    defaultValues: formHabitBuilder(habit),
+  });
+
+  const onSubmit = async (data: FieldValues) => {
+    fetchEditHabit(newHabitMapper(data, habitId)).then(() => {
+      dispatch<any>(fetchHabits());
     });
 
-    const onSubmit = async (data: FieldValues) => {
-        console.log(data);
-        fetchEditHabit(newHabitMapper(data, habitId));
-        // TODO: add reload habits list
-        onClose();
-    };
+    onClose();
+  };
 
-    return (
-        <Dialog onClose={onClose}>
-            <FormProvider {...editHabitForm}>
-                <HabitForm
-                    onSubmit={onSubmit}
-                    title={EDIT_HABIT_TITLE}
-                    onSubmitButtonTitle={SAVE_HABIT_BUTTON_TITLE}
-                />
-            </FormProvider>
-        </Dialog>     
-    );
+  return (
+    <Dialog onClose={onClose}>
+      <FormProvider {...editHabitForm}>
+        <HabitForm
+          onSubmit={onSubmit}
+          title={EDIT_HABIT_TITLE}
+          onSubmitButtonTitle={SAVE_HABIT_BUTTON_TITLE}
+        />
+      </FormProvider>
+    </Dialog>
+  );
 };

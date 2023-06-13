@@ -36,4 +36,10 @@ export class HabitController {
     const result = await this.habitService.deleteHabit(id);
     return result;
   }
+
+  @Put('increment/:id')
+  async incrementHabit(@Param('id') id: string) {
+    const result = await this.habitService.incrementHabit(id);
+    return result;
+  }
 }

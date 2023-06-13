@@ -1,9 +1,12 @@
 import { useMemo } from 'react';
+import { useDispatch } from 'react-redux';
 import { Icon } from '../icon';
 import { HabitCardProps } from './types';
 import { ProgressBar } from '../progress-bar';
 import { ActionButtons } from '../action-buttons';
 import styles from './styles.module.scss';
+import { fetchIncrementHabit } from './utils/fetch-increment-habit';
+import { fetchHabits } from '../../store/action-creators/habits';
 
 export const HabitCard = ({
     id,
@@ -13,6 +16,7 @@ export const HabitCard = ({
     targetValue,
     color,
 }: HabitCardProps) => {
+    const dispatch = useDispatch()
     const progressBarTitle = useMemo(
         () => `${currentValue}/${targetValue}`,
         [currentValue, targetValue]
@@ -22,9 +26,10 @@ export const HabitCard = ({
         [currentValue, targetValue]
     );
 
-    const onClickAdd = () => {
-        // TODO: use fetch
-        console.log('add ' + id);
+    const onClickAdd = async () => {
+        fetchIncrementHabit(id).then(() => {
+            dispatch<any>(fetchHabits());
+        });
     };
 
     return (
@@ -37,7 +42,7 @@ export const HabitCard = ({
                 color={color}
                 onClickAdd={onClickAdd}
             />
-            <ActionButtons habitId={id} color={color} hovered />
+            <ActionButtons habitId={id} color={color} />
         </div>
     );
 };
