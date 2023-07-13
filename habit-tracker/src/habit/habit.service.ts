@@ -15,13 +15,11 @@ export class HabitService {
 
   async getHabit(id: string): Promise<HabitDto> {
     try {
-      const habit = await prisma.habit.findFirstOrThrow(
-        {
-          where: {
-            id
-          }
-        }
-      );
+      const habit = await prisma.habit.findFirstOrThrow({
+        where: {
+          id,
+        },
+      });
       return habit;
     } catch (e) {
       console.log(e);
@@ -30,11 +28,9 @@ export class HabitService {
 
   async createHabit(habit: HabitDto): Promise<HabitDto> {
     try {
-      const newHabit = await prisma.habit.create(
-        {
-          data: habit
-        }
-      );
+      const newHabit = await prisma.habit.create({
+        data: habit,
+      });
       return newHabit;
     } catch (e) {
       console.log(e);
@@ -43,13 +39,12 @@ export class HabitService {
 
   async updateHabit(id: string, habit: HabitDto): Promise<HabitDto> {
     try {
-      const updatedHabit = await prisma.habit.update(
-        {
-          data: habit, 
-          where: {
-            id
-          }
-        });
+      const updatedHabit = await prisma.habit.update({
+        data: habit,
+        where: {
+          id,
+        },
+      });
       return updatedHabit;
     } catch (e) {
       console.log(e);
@@ -58,13 +53,11 @@ export class HabitService {
 
   async deleteHabit(id: string): Promise<boolean> {
     try {
-      await prisma.habit.delete(
-        {
-          where: {
-            id
-          }
-        }
-      );
+      await prisma.habit.delete({
+        where: {
+          id,
+        },
+      });
       return true;
     } catch (e) {
       console.log(e);
@@ -76,13 +69,12 @@ export class HabitService {
     try {
       const habit = await this.getHabit(id);
       if (habit.currentValue < habit.targetValue) {
-        const newHabit = {...habit, currentValue: habit.currentValue + 1};
-        await prisma.habit.update(
-          {
-            data: newHabit, 
-            where: {
-              id
-            }
+        const newHabit = { ...habit, currentValue: habit.currentValue + 1 };
+        await prisma.habit.update({
+          data: newHabit,
+          where: {
+            id,
+          },
         });
       }
       return true;

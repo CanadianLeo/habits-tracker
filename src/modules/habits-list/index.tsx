@@ -28,6 +28,7 @@ export const HabitsList = () => {
             reloadLock.current = false;
 
             // strange bug with @types/react
+            // @ts-ignore
             dispatch<any>(fetchHabits());
         }
     }, [dispatch]);

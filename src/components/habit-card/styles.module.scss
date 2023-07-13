@@ -1,16 +1,16 @@
 .habit-card {
-    height: 50px;
-    display: flex;
-    gap: 15px;
-    border: 1px solid lightgrey;
-    width: 100%;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 12px;
-    align-items: center;
+  height: 50px;
+  display: flex;
+  gap: 15px;
+  border: 1px solid lightgrey;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  align-items: center;
 }
 
 .habit-card_title {
-    flex-grow: 1;
-    text-align: left;
+  flex-grow: 1;
+  text-align: left;
 }

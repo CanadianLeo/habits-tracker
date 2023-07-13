@@ -1,11 +1,11 @@
 import { useState, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { useOnClickOutside } from 'usehooks-ts';
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import { EditHabit } from '../edit-habit';
+import { useOnClickOutside } from 'usehooks-ts';
+import { useDispatch } from 'react-redux';
 import { fetchHabits } from '../../store/action-creators/habits';
-import { Button } from '../button';
+import { EditHabit } from '../edit-habit';
 import { Dropdown } from '../dropdown';
+import { Button } from '../button';
 import { fetchDeleteHabit } from './utils/fetch-delete-habit';
 import { ActionButtonsProps } from './types';
 import styles from './styles.module.scss';
@@ -21,6 +21,7 @@ export const ActionButtons = ({
 
 	const onClickDelete = async () => {
 		await fetchDeleteHabit(habitId);
+		// @ts-ignore
 		dispatch<any>(fetchHabits());
 		setShow(false);
 	};
@@ -33,6 +34,7 @@ export const ActionButtons = ({
 	const onClickReset = () => {
 		// TODO: use fetch
 		console.log('reset ' + habitId);
+		// @ts-ignore
 		dispatch<any>(fetchHabits());
 		setShow(false);
 	};

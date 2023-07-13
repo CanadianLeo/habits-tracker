@@ -1,5 +1,4 @@
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
 import { fetchNewHabit } from './utils/fetch-new-habit';
 import { newHabitMapper } from './utils/new-habit-mapper';
 import { HabitForm } from '../habit-form';

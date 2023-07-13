@@ -1,11 +1,11 @@
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { newHabitMapper } from '../new-habit/utils/new-habit-mapper';
 import { HabitForm } from '../habit-form';
 import { Dialog } from '../dialog';
-import { newHabitMapper } from '../new-habit/utils/new-habit-mapper';
+import { fetchHabits } from '../../store/action-creators/habits';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { habitSelector } from '../../store/selectors';
-import { fetchHabits } from '../../store/action-creators/habits';
 import { formHabitBuilder } from './utils/form-habit-builder';
 import { fetchEditHabit } from './utils/fetch-edit-habit';
 import {
@@ -24,6 +24,7 @@ export const EditHabit = ({ habitId, onClose }: EditHabitProps) => {
 
   const onSubmit = async (data: FieldValues) => {
     fetchEditHabit(newHabitMapper(data, habitId)).then(() => {
+      // @ts-ignore
       dispatch<any>(fetchHabits());
     });
 
