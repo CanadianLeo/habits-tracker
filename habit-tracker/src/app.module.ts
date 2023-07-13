@@ -4,4 +4,4 @@ import { HabitModule } from './habit/habit.module';
 @Module({
   imports: [HabitModule],
 })
-export class AppModule { }
+export class AppModule {}

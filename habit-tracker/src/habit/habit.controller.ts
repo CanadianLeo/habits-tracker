@@ -1,4 +1,14 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { HabitService } from './habit.service';
 import { HabitDto } from './dto/habit.dto';
 
@@ -13,7 +23,7 @@ export class HabitController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  async createHabit(@Body() habit: HabitDto)  {
+  async createHabit(@Body() habit: HabitDto) {
     return await this.habitService.createHabit(habit);
   }
 
@@ -23,10 +33,7 @@ export class HabitController {
   }
 
   @Put(':id')
-  async updateHabit(
-    @Param('id') id: string,
-    @Body() updateHabit: HabitDto
-  ) {
+  async updateHabit(@Param('id') id: string, @Body() updateHabit: HabitDto) {
     return await this.habitService.updateHabit(id, updateHabit);
   }
 
@@ -34,6 +41,12 @@ export class HabitController {
   @HttpCode(HttpStatus.NO_CONTENT)
   async removeHabit(@Param('id') id: string) {
     const result = await this.habitService.deleteHabit(id);
+    return result;
+  }
+
+  @Put('increment/:id')
+  async incrementHabit(@Param('id') id: string) {
+    const result = await this.habitService.incrementHabit(id);
     return result;
   }
 }
