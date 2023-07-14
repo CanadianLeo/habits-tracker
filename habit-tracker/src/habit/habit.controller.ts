@@ -49,4 +49,10 @@ export class HabitController {
     const result = await this.habitService.incrementHabit(id);
     return result;
   }
+
+  @Put('decrement/:id')
+  async decrementHabit(@Param('id') id: string) {
+    const result = await this.habitService.decrementHabit(id);
+    return result;
+  }
 }
