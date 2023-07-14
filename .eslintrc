@@ -19,8 +19,7 @@
   "rules": {
     "no-debugger": "off",
     "no-console": 0,
-    "ban-ts-comment": "off",
-    "no-explicit-any": "off",
-    "@typescript-eslint/ban-ts-ignore": "off"
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }
