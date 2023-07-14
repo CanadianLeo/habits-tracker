@@ -1,6 +1,6 @@
 import cn from 'classnames';
+import { BiMinus, BiPlus } from 'react-icons/bi';
 import { ProgressBarProps } from './types';
-import { DECREMENT_BUTTON_CONTENT, INCREMENT_BUTTON_CONTENT } from './constants';
 import colors from '../../colors.module.scss';
 import styles from './styles.module.scss';
 
@@ -31,7 +31,7 @@ export const ProgressBar = ({
           )}
           onClick={onClickDecrement}
         >
-          {DECREMENT_BUTTON_CONTENT}
+          <BiMinus />
         </div>
       }
       <div
@@ -53,7 +53,7 @@ export const ProgressBar = ({
           )}
           onClick={onClickIncrement}
         >
-          {INCREMENT_BUTTON_CONTENT}
+          <BiPlus />
         </div>
       }
     </div>

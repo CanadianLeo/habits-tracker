@@ -39,10 +39,10 @@ export const IconPicker = () => {
   useOnClickOutside(ref, onClickOutside);
 
   return (
-    <div ref={ref} className={styles['icon-picker_wrapper']}>
+    <div ref={ref} className={styles['wrapper']}>
       <div
         onClick={onClickHandler}
-        className={styles['icon-picker_main-icon']}
+        className={styles['main-icon']}
       >
         <Icon
           iconName={currentIcon}
@@ -51,18 +51,18 @@ export const IconPicker = () => {
         />
       </div>
       {show && (
-        <div className={styles['icon-picker_dropdown']}>
-          <h4 className={styles['icon-picker_title']}>
+        <div className={styles.dropdown}>
+          <h4 className={styles.title}>
             {COLORS_TITLE}
           </h4>
           <div
-            className={styles['icon-picker_dropdown-list-wrapper']}
+            className={styles['dropdown-list-wrapper']}
           >
             {ColorsList.map((item) => (
               <div
                 key={item}
                 className={cn(
-                  styles['icon-picker_color'],
+                  styles.color,
                   styles[
                   item === currentColor ? 'picked' : ''
                   ]
@@ -73,17 +73,17 @@ export const IconPicker = () => {
               </div>
             ))}
           </div>
-          <h4 className={styles['icon-picker_title']}>
+          <h4 className={styles.title}>
             {ICONS_TITLE}
           </h4>
           <div
-            className={styles['icon-picker_dropdown-list-wrapper']}
+            className={styles['dropdown-list-wrapper']}
           >
             {IconsList.map((item) => (
               <div
                 key={item}
                 className={cn(
-                  styles['icon-picker_color'],
+                  styles.icon,
                   styles[item === currentIcon ? 'picked' : '']
                 )}
                 onClick={() => onChangeIconHandler(item)}
