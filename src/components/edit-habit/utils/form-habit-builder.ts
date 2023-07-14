@@ -1,7 +1,7 @@
 import { Colors, Icons } from "../../../constants";
 import { Habit } from "../../../types";
-import { Period } from "../../new-habit/types";
-import { NEW_HABIT_FORM_DEFAULT_VALUES, PERIODS } from "../../new-habit/constants";
+import { NEW_HABIT_FORM_DEFAULT_VALUES } from "../../new-habit/constants";
+import { getPeriod } from "../../../utils/get-period";
 
 export const formHabitBuilder = (habit: Habit | undefined) => {
   if (!habit) return NEW_HABIT_FORM_DEFAULT_VALUES;
@@ -15,6 +15,3 @@ export const formHabitBuilder = (habit: Habit | undefined) => {
   }
 };
 
-const getPeriod = (value: string): Period | undefined => {
-  return PERIODS.find(period => period.id === value);
-}

@@ -1,6 +1,9 @@
+import { api } from "../../../api/Api";
+
 export const fetchDeleteHabit = async (habitId: string) => {
   try {
-    await fetch(`http://localhost:3001/habits/${habitId}`, { mode: 'cors', method: 'delete' });
+    const { data } = await api.habits.habitControllerRemoveHabit(habitId);
+    return data;
   } catch (e) {
     // TODO: add NetworkException
     console.log(e);

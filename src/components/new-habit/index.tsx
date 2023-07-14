@@ -16,7 +16,7 @@ export const NewHabit = ({ onClose }: NewHabitProps) => {
   });
 
   const onSubmit = async (data: FieldValues) => {
-    fetchNewHabit(newHabitMapper(data));
+    await fetchNewHabit(newHabitMapper(data));
     // TODO: add reload habits list
     onClose();
   };

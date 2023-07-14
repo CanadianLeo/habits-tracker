@@ -1,6 +1,12 @@
-import axios from "axios";
 import { Habit } from "../../../types";
+import { api } from "../../../api/Api";
 
 export const fetchEditHabit = async (habit: Habit) => {
-  await axios.put(`http://localhost:3001/habits/${habit.id}`, habit);
+  try {
+    const { data } = await api.habits.habitControllerUpdateHabit(habit.id, habit);
+    return data;
+  } catch (e) {
+    // TODO: add NetworkException
+    console.log(e);
+  }
 }
