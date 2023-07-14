@@ -1,5 +1,11 @@
-import axios from "axios";
+import { api } from "../../../api/Api";
 
 export const fetchDecrementHabit = async (id: string) => {
-  await axios.put(`http://localhost:3001/habits/decrement/${id}`);
+  try {
+    const { data } = await api.habits.habitControllerDecrementHabit(id);
+    return data;
+  } catch (e) {
+    // TODO: add NetworkException
+    console.log(e);
+  }
 }
