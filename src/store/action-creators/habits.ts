@@ -7,9 +7,9 @@ export const fetchHabits = () => {
   return async (dispatch: Dispatch<HabitsAction>) => {
     try {
       dispatch({ type: ActionTypes.FETCH_HABITS });
-      const obj = await api.habits.habitControllerGetHabits();
-      if (obj) {
-        dispatch({ type: ActionTypes.FETCH_HABITS_SUCCESS, payload: buildHabits(obj.data) });
+      const { data, status } = await api.habits.habitControllerGetHabits();
+      if (data) {
+        dispatch({ type: ActionTypes.FETCH_HABITS_SUCCESS, payload: buildHabits(data) });
       } else {
         dispatch({ type: ActionTypes.FETCH_HABITS_FAILED, payload: 'Ошибка HTTP: ' + status });
       }
