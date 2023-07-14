@@ -4,10 +4,10 @@ import { fetchHabits } from '../../store/action-creators/habits';
 import { Icon } from '../icon';
 import { ProgressBar } from '../progress-bar';
 import { ActionButtons } from '../action-buttons';
+import { fetchDecrementHabit } from './utils/fetch-decrement-habit';
 import { fetchIncrementHabit } from './utils/fetch-increment-habit';
 import { HabitCardProps } from './types';
 import styles from './styles.module.scss';
-import { fetchDecrementHabit } from './utils/fetch-decrement-habit';
 
 export const HabitCard = ({
   id,
