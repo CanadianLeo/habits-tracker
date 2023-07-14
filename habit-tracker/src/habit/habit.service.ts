@@ -83,4 +83,23 @@ export class HabitService {
       return false;
     }
   }
+
+  async decrementHabit(id: string): Promise<boolean> {
+    try {
+      const habit = await this.getHabit(id);
+      if (habit.currentValue > 0) {
+        const newHabit = { ...habit, currentValue: habit.currentValue - 1 };
+        await prisma.habit.update({
+          data: newHabit,
+          where: {
+            id,
+          },
+        });
+      }
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  }
 }

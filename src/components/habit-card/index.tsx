@@ -4,6 +4,7 @@ import { fetchHabits } from '../../store/action-creators/habits';
 import { Icon } from '../icon';
 import { ProgressBar } from '../progress-bar';
 import { ActionButtons } from '../action-buttons';
+import { fetchDecrementHabit } from './utils/fetch-decrement-habit';
 import { fetchIncrementHabit } from './utils/fetch-increment-habit';
 import { HabitCardProps } from './types';
 import styles from './styles.module.scss';
@@ -26,8 +27,15 @@ export const HabitCard = ({
     [currentValue, targetValue]
   );
 
-  const onClickAdd = async () => {
+  const onClickIncrementHandler = async () => {
     fetchIncrementHabit(id).then(() => {
+      // @ts-ignore
+      dispatch<any>(fetchHabits());
+    });
+  };
+
+  const onClickDecrementHandler = async () => {
+    fetchDecrementHabit(id).then(() => {
       // @ts-ignore
       dispatch<any>(fetchHabits());
     });
@@ -41,7 +49,8 @@ export const HabitCard = ({
         title={progressBarTitle}
         value={progressBarValue}
         color={color}
-        onClickAdd={onClickAdd}
+        onClickIncrement={onClickIncrementHandler}
+        onClickDecrement={onClickDecrementHandler}
       />
       <ActionButtons habitId={id} color={color} />
     </div>
