@@ -40,9 +40,9 @@ export const HabitCard = ({
   };
 
   return (
-    <div className={styles['habit-card']}>
+    <div className={styles.container}>
       <Icon iconName={icon} color={color} />
-      <h3 className={styles['habit-card_title']}>{title}</h3>
+      <h3 className={styles.title}>{title}</h3>
       <ProgressBar
         title={progressBarTitle}
         value={progressBarValue}

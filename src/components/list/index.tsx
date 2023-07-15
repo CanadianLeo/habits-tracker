@@ -4,7 +4,7 @@ import style from './styles.module.scss';
 
 export const List = ({ habits }: ListProps) => {
   return (
-    <div className={style['habits-list_wrapper']}>
+    <div className={style.container}>
       {habits.map((item) => (
         <HabitCard
           id={item.id}

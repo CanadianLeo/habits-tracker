@@ -33,7 +33,7 @@ export const HabitsList = () => {
   }, [dispatch]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <Header onButtonClick={onButtonClick} />
       {newHabitShow && <NewHabit onClose={onClose} />}
       {loading ?

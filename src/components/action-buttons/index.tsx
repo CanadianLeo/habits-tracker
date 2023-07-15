@@ -76,7 +76,7 @@ export const ActionButtons = ({
 					<div
 						key={item.id}
 						onClick={item.onClick}
-						className={styles['action-button_action']}
+						className={styles.action}
 					>
 						{item.title}
 					</div>

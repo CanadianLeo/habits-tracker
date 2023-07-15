@@ -17,7 +17,7 @@ export const ProgressBar = ({
   return (
     <div
       className={cn(
-        styles.wrapper,
+        styles.container,
         colors[`border-${color}`]
       )}
     >
@@ -37,7 +37,7 @@ export const ProgressBar = ({
       <div
         style={filledStyles}
         className={cn(
-          styles.wrapper,
+          styles.container,
           styles['filled'],
           colors[`${color}`]
         )}

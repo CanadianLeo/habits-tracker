@@ -6,7 +6,7 @@ export const Today = () => {
   const day = new Date().getDate();
   const month = new Date().getMonth();
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <p className={styles.day}>{day}</p>
       <p className={styles['date-ending']}>{getDateEnding(day)}</p>
       <p className={styles.month}>{MONTHS[month]}</p>

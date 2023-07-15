@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 
 export const Dialog = ({ onClose, children }: DialogProps) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <div className={styles['new-habit']}>
         <BiX onClick={onClose} className={styles.cross}/>
         {children}

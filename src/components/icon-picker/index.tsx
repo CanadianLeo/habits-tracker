@@ -39,7 +39,7 @@ export const IconPicker = () => {
   useOnClickOutside(ref, onClickOutside);
 
   return (
-    <div ref={ref} className={styles['wrapper']}>
+    <div ref={ref} className={styles.container}>
       <div
         onClick={onClickHandler}
         className={styles['main-icon']}
@@ -56,7 +56,7 @@ export const IconPicker = () => {
             {COLORS_TITLE}
           </h4>
           <div
-            className={styles['dropdown-list-wrapper']}
+            className={styles['dropdown-list-container']}
           >
             {ColorsList.map((item) => (
               <div
@@ -77,7 +77,7 @@ export const IconPicker = () => {
             {ICONS_TITLE}
           </h4>
           <div
-            className={styles['dropdown-list-wrapper']}
+            className={styles['dropdown-list-container']}
           >
             {IconsList.map((item) => (
               <div

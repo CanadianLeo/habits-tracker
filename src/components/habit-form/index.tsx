@@ -16,10 +16,10 @@ export const HabitForm = ({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={styles['wrapper']}
+      className={styles.container}
     >
-      <h3 className={styles['title']}>{title}</h3>
-      <div className={styles['line-wrapper']}>
+      <h3 className={styles.title}>{title}</h3>
+      <div className={styles['line-container']}>
         <TextField {...FIELDS.name} />
         <IconPicker />
       </div>

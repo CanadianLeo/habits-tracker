@@ -19,10 +19,10 @@ export const Periods = () => {
   };
 
   return (
-    <div className={styles['periods_wrapper']}>
+    <div className={styles.container}>
       {REPEAT_CONTEXT}
       <input
-        className={styles['periods_input']}
+        className={styles.input}
         pattern="[0-9]*"
         {...register('count', {
           required: true,
