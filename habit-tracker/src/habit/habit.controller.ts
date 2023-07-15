@@ -85,4 +85,14 @@ export class HabitController {
     const result = await this.habitService.decrementHabit(id);
     return result;
   }
+
+  @ApiOkResponse({
+    description: 'Reset habit counter',
+    type: Boolean,
+  })
+  @Put('reset/:id')
+  async resetHabit(@Param('id') id: string) {
+    const result = await this.habitService.resetHabit(id);
+    return result;
+  }
 }

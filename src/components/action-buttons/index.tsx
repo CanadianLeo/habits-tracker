@@ -9,6 +9,7 @@ import { Button } from '../button';
 import { fetchDeleteHabit } from './utils/fetch-delete-habit';
 import { ActionButtonsProps } from './types';
 import styles from './styles.module.scss';
+import { fetchResetHabit } from './utils/fetch-reset-habit';
 
 export const ActionButtons = ({
 	habitId,
@@ -32,9 +33,9 @@ export const ActionButtons = ({
 	};
 
 	const onClickReset = () => {
-		// TODO: use fetch
-		console.log('reset ' + habitId);
-		dispatch<any>(fetchHabits());
+		fetchResetHabit(habitId).then(() => {
+			dispatch<any>(fetchHabits());
+		});
 		setShow(false);
 	};
 
