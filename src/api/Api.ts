@@ -237,13 +237,7 @@ export class HttpClient<SecurityDataType = unknown> {
  *
  * Habit API description
  */
-export class Api<SecurityDataType extends unknown> {
-  http: HttpClient<SecurityDataType>;
-
-  constructor(http: HttpClient<SecurityDataType>) {
-    this.http = http;
-  }
-
+export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
   habits = {
     /**
      * No description
@@ -252,7 +246,7 @@ export class Api<SecurityDataType extends unknown> {
      * @request GET:/habits
      */
     habitControllerGetHabits: (params: RequestParams = {}) =>
-      this.http.request<HabitDto[], any>({
+      this.request<HabitDto[], any>({
         path: `/habits`,
         method: 'GET',
         format: 'json',
@@ -266,7 +260,7 @@ export class Api<SecurityDataType extends unknown> {
      * @request POST:/habits
      */
     habitControllerCreateHabit: (data: HabitDto, params: RequestParams = {}) =>
-      this.http.request<string, any>({
+      this.request<string, any>({
         path: `/habits`,
         method: 'POST',
         body: data,
@@ -282,7 +276,7 @@ export class Api<SecurityDataType extends unknown> {
      * @request GET:/habits/{id}
      */
     habitControllerGetHabitById: (id: string, params: RequestParams = {}) =>
-      this.http.request<HabitDto, any>({
+      this.request<HabitDto, any>({
         path: `/habits/${id}`,
         method: 'GET',
         format: 'json',
@@ -296,7 +290,7 @@ export class Api<SecurityDataType extends unknown> {
      * @request PUT:/habits/{id}
      */
     habitControllerUpdateHabit: (id: string, data: HabitDto, params: RequestParams = {}) =>
-      this.http.request<HabitDto, any>({
+      this.request<HabitDto, any>({
         path: `/habits/${id}`,
         method: 'PUT',
         body: data,
@@ -312,7 +306,7 @@ export class Api<SecurityDataType extends unknown> {
      * @request DELETE:/habits/{id}
      */
     habitControllerRemoveHabit: (id: string, params: RequestParams = {}) =>
-      this.http.request<boolean, any>({
+      this.request<boolean, any>({
         path: `/habits/${id}`,
         method: 'DELETE',
         format: 'json',
@@ -326,7 +320,7 @@ export class Api<SecurityDataType extends unknown> {
      * @request PUT:/habits/increment/{id}
      */
     habitControllerIncrementHabit: (id: string, params: RequestParams = {}) =>
-      this.http.request<boolean, any>({
+      this.request<boolean, any>({
         path: `/habits/increment/${id}`,
         method: 'PUT',
         format: 'json',
@@ -340,8 +334,22 @@ export class Api<SecurityDataType extends unknown> {
      * @request PUT:/habits/decrement/{id}
      */
     habitControllerDecrementHabit: (id: string, params: RequestParams = {}) =>
-      this.http.request<boolean, any>({
+      this.request<boolean, any>({
         path: `/habits/decrement/${id}`,
+        method: 'PUT',
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @name HabitControllerResetHabit
+     * @request PUT:/habits/reset/{id}
+     */
+    habitControllerResetHabit: (id: string, params: RequestParams = {}) =>
+      this.request<boolean, any>({
+        path: `/habits/reset/${id}`,
         method: 'PUT',
         format: 'json',
         ...params,
