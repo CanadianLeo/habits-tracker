@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
 import { fetchNewHabit } from './utils/fetch-new-habit';
 import { newHabitMapper } from './utils/new-habit-mapper';
@@ -9,15 +10,18 @@ import {
   NEW_HABIT_FORM_DEFAULT_VALUES,
 } from './constants';
 import { NewHabitProps } from './types';
+import { fetchHabits } from '../../store/action-creators/habits';
 
 export const NewHabit = ({ onClose }: NewHabitProps) => {
+	const dispatch = useDispatch();
   const newHabitForm = useForm({
     defaultValues: NEW_HABIT_FORM_DEFAULT_VALUES,
   });
 
   const onSubmit = async (data: FieldValues) => {
-    await fetchNewHabit(newHabitMapper(data));
-    // TODO: add reload habits list
+    fetchNewHabit(newHabitMapper(data)).then(() => {
+      dispatch<any>(fetchHabits());
+    });
     onClose();
   };
 

@@ -20,9 +20,9 @@ export const ActionButtons = ({
 	const dispatch = useDispatch();
 
 	const onClickDelete = async () => {
-		await fetchDeleteHabit(habitId);
-		// @ts-ignore
-		dispatch<any>(fetchHabits());
+		fetchDeleteHabit(habitId).then(() => {
+			dispatch<any>(fetchHabits());
+		});
 		setShow(false);
 	};
 
@@ -34,7 +34,6 @@ export const ActionButtons = ({
 	const onClickReset = () => {
 		// TODO: use fetch
 		console.log('reset ' + habitId);
-		// @ts-ignore
 		dispatch<any>(fetchHabits());
 		setShow(false);
 	};

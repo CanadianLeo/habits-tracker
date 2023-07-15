@@ -29,14 +29,12 @@ export const HabitCard = ({
 
   const onClickIncrementHandler = async () => {
     fetchIncrementHabit(id).then(() => {
-      // @ts-ignore
       dispatch<any>(fetchHabits());
     });
   };
 
   const onClickDecrementHandler = async () => {
     fetchDecrementHabit(id).then(() => {
-      // @ts-ignore
       dispatch<any>(fetchHabits());
     });
   };

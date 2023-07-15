@@ -24,7 +24,6 @@ export const EditHabit = ({ habitId, onClose }: EditHabitProps) => {
 
   const onSubmit = async (data: FieldValues) => {
     fetchEditHabit(newHabitMapper(data, habitId)).then(() => {
-      // @ts-ignore
       dispatch<any>(fetchHabits());
     });
 
