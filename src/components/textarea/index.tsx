@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 export const Textarea = ({ id, placeholder }: TextareaProps) => {
   const { register } = useFormContext();
   return (
-    <div className={styles['floating']}>
+    <div className={styles.floating}>
       <textarea
         {...register(id, { required: true })}
         placeholder={placeholder}

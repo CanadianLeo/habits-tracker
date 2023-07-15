@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 
 export const Header = ({ onButtonClick }: HeaderProps) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <Today />
       <button
         className={styles.button}

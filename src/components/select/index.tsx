@@ -11,7 +11,7 @@ export const Select = <T,>({
   const { register } = useFormContext();
   return (
     <select
-      className={styles['select_input']}
+      className={styles.input}
       {...register('period', { required: true })}
       defaultValue={String(defaultItem[renderValue])}
     >
