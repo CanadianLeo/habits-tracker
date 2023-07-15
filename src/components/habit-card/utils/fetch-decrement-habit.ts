@@ -1,4 +1,4 @@
-import { api } from "../../../api/Api";
+import { api } from "../../../api";
 
 export const fetchDecrementHabit = async (id: string) => {
   try {

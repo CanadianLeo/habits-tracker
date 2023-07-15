@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
+import { api } from "../../api";
 import { HabitsAction, ActionTypes } from "../../types/habitsReducerTypes";
-import { api } from "../../api/Api";
 import { buildHabits } from "../../utils/builder-habits";
 
 export const fetchHabits = () => {

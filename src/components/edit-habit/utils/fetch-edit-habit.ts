@@ -1,5 +1,5 @@
+import { api } from "../../../api";
 import { Habit } from "../../../types";
-import { api } from "../../../api/Api";
 
 export const fetchEditHabit = async (habit: Habit) => {
   try {
