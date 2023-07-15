@@ -3,6 +3,7 @@ import { useFormContext } from 'react-hook-form';
 import { Select } from '../select';
 import { PERIODS } from '../new-habit/constants';
 import { Period } from '../new-habit/types';
+import { REPEAT_CONTEXT, TIMES_A } from './constants';
 import styles from './styles.module.scss';
 
 export const Periods = () => {
@@ -19,7 +20,7 @@ export const Periods = () => {
 
   return (
     <div className={styles['periods_wrapper']}>
-      Repeat
+      {REPEAT_CONTEXT}
       <input
         className={styles['periods_input']}
         pattern="[0-9]*"
@@ -29,7 +30,7 @@ export const Periods = () => {
           onChange: onChangeHandle,
         })}
       />
-      times a
+      {TIMES_A}
       <Select<Period>
         items={PERIODS}
         defaultItem={PERIODS[0]}

@@ -5,6 +5,7 @@ import { Textarea } from '../textarea';
 import { Periods } from '../periods';
 import { HabitFormProps } from './types';
 import styles from './styles.module.scss';
+import { FIELDS } from './constants';
 
 export const HabitForm = ({
   onSubmit,
@@ -19,10 +20,10 @@ export const HabitForm = ({
     >
       <h3 className={styles['title']}>{title}</h3>
       <div className={styles['line-wrapper']}>
-        <TextField id='name' placeholder='Habit name' />
+        <TextField {...FIELDS.name} />
         <IconPicker />
       </div>
-      <Textarea id='description' placeholder='Habit description' />
+      <Textarea {...FIELDS.description} />
       <Periods />
       <input
         type="submit"

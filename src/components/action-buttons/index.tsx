@@ -49,17 +49,17 @@ export const ActionButtons = ({
 	const actions = [
 		{
 			id: 1,
-			title: 'Изменить',
+			title: 'Edit',
 			onClick: onClickEdit,
 		},
 		{
 			id: 2,
-			title: 'Сбросить до 0',
+			title: 'Reset',
 			onClick: onClickReset,
 		},
 		{
 			id: 3,
-			title: 'Удалить',
+			title: 'Delete',
 			onClick: onClickDelete,
 		},
 	];
