@@ -1,15 +1,19 @@
-import { Injectable } from '@nestjs/common';
-import { HabitDto } from './dto/habit.dto';
+import { HttpException, Injectable } from '@nestjs/common';
 import prisma from 'src/utils/prisma';
+import { CustomLogger } from 'src/utils/logger';
+import { HabitDto } from './dto/habit.dto';
 
 @Injectable()
 export class HabitService {
+  private readonly logger = new CustomLogger(HabitService.name);
+  
   async getHabits(): Promise<Array<HabitDto>> {
     try {
       const habits = await prisma.habit.findMany();
       return habits;
     } catch (e) {
-      console.log(e);
+      this.logger.error(e);
+      throw new HttpException("Habits are not found", 404, {cause: e});
     }
   }
 
@@ -22,7 +26,8 @@ export class HabitService {
       });
       return habit;
     } catch (e) {
-      console.log(e);
+      this.logger.error(e);
+      throw new HttpException("Habit is not found", 404, {cause: e});
     }
   }
 
@@ -33,7 +38,8 @@ export class HabitService {
       });
       return newHabit;
     } catch (e) {
-      console.log(e);
+      this.logger.error(e);
+      throw new HttpException("Habit was not created", 404, {cause: e});
     }
   }
 
@@ -47,7 +53,8 @@ export class HabitService {
       });
       return updatedHabit;
     } catch (e) {
-      console.log(e);
+      this.logger.error(e);
+      throw new HttpException("Habit was not updated", 404, {cause: e});
     }
   }
 
@@ -60,8 +67,8 @@ export class HabitService {
       });
       return true;
     } catch (e) {
-      console.log(e);
-      return false;
+      this.logger.error(e);
+      throw new HttpException("Habit was not deleted", 404, {cause: e});
     }
   }
 
@@ -79,8 +86,8 @@ export class HabitService {
       }
       return true;
     } catch (e) {
-      console.log(e);
-      return false;
+      this.logger.error(e);
+      throw new HttpException("Habit was not update", 404, {cause: e});
     }
   }
 
@@ -98,8 +105,8 @@ export class HabitService {
       }
       return true;
     } catch (e) {
-      console.log(e);
-      return false;
+      this.logger.error(e);
+      throw new HttpException("Habit was not update", 404, {cause: e});
     }
   }
 
@@ -117,8 +124,8 @@ export class HabitService {
       }
       return true;
     } catch (e) {
-      console.log(e);
-      return false;
+      this.logger.error(e);
+      throw new HttpException("Habit was not update", 404, {cause: e});
     }
   }
 }
