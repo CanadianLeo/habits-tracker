@@ -66,7 +66,7 @@ export enum ContentType {
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-  public baseUrl: string = 'http://localhost:4000/api';
+  public baseUrl: string = '';
   private securityData: SecurityDataType | null = null;
   private securityWorker?: ApiConfig<SecurityDataType>['securityWorker'];
   private abortControllers = new Map<CancelToken, AbortController>();
@@ -237,7 +237,13 @@ export class HttpClient<SecurityDataType = unknown> {
  *
  * Habit API description
  */
-class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
+export class Api<SecurityDataType extends unknown> {
+  http: HttpClient<SecurityDataType>;
+
+  constructor(http: HttpClient<SecurityDataType>) {
+    this.http = http;
+  }
+
   habits = {
     /**
      * No description
@@ -246,7 +252,7 @@ class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType>
      * @request GET:/habits
      */
     habitControllerGetHabits: (params: RequestParams = {}) =>
-      this.request<HabitDto[], any>({
+      this.http.request<HabitDto[], any>({
         path: `/habits`,
         method: 'GET',
         format: 'json',
@@ -260,7 +266,7 @@ class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType>
      * @request POST:/habits
      */
     habitControllerCreateHabit: (data: HabitDto, params: RequestParams = {}) =>
-      this.request<string, any>({
+      this.http.request<string, any>({
         path: `/habits`,
         method: 'POST',
         body: data,
@@ -276,7 +282,7 @@ class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType>
      * @request GET:/habits/{id}
      */
     habitControllerGetHabitById: (id: string, params: RequestParams = {}) =>
-      this.request<HabitDto, any>({
+      this.http.request<HabitDto, any>({
         path: `/habits/${id}`,
         method: 'GET',
         format: 'json',
@@ -290,7 +296,7 @@ class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType>
      * @request PUT:/habits/{id}
      */
     habitControllerUpdateHabit: (id: string, data: HabitDto, params: RequestParams = {}) =>
-      this.request<HabitDto, any>({
+      this.http.request<HabitDto, any>({
         path: `/habits/${id}`,
         method: 'PUT',
         body: data,
@@ -306,7 +312,7 @@ class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType>
      * @request DELETE:/habits/{id}
      */
     habitControllerRemoveHabit: (id: string, params: RequestParams = {}) =>
-      this.request<boolean, any>({
+      this.http.request<boolean, any>({
         path: `/habits/${id}`,
         method: 'DELETE',
         format: 'json',
@@ -320,7 +326,7 @@ class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType>
      * @request PUT:/habits/increment/{id}
      */
     habitControllerIncrementHabit: (id: string, params: RequestParams = {}) =>
-      this.request<boolean, any>({
+      this.http.request<boolean, any>({
         path: `/habits/increment/${id}`,
         method: 'PUT',
         format: 'json',
@@ -334,7 +340,7 @@ class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType>
      * @request PUT:/habits/decrement/{id}
      */
     habitControllerDecrementHabit: (id: string, params: RequestParams = {}) =>
-      this.request<boolean, any>({
+      this.http.request<boolean, any>({
         path: `/habits/decrement/${id}`,
         method: 'PUT',
         format: 'json',
@@ -342,5 +348,3 @@ class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType>
       }),
   };
 }
-
-export const api = new Api();
