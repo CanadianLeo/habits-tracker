@@ -1,5 +1,4 @@
 const fs = require("fs");
-//import fs from 'fs';
 import { Logger, LoggerService } from '@nestjs/common';
 import { LOG_FILE_PATH } from 'src/constants';
 import { dateToString } from './date-to-string';
