@@ -1,11 +1,11 @@
 {
   "uuid": "aa8d7002-9cd3-44f3-8605-598c5cf660d5",
-  "lastMigration": 25,
+  "lastMigration": 28,
   "name": "Frontend",
   "endpointPrefix": "api",
   "latency": 0,
   "port": 4000,
-  "hostname": "0.0.0.0",
+  "hostname": "",
   "folders": [],
   "routes": [],
   "rootChildren": [],

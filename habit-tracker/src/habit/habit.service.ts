@@ -2,6 +2,7 @@ import { HttpException, Injectable } from '@nestjs/common';
 import prisma from 'src/utils/prisma';
 import { CustomLogger } from 'src/utils/logger';
 import { HabitDto } from './dto/habit.dto';
+import { habitComparator } from 'src/utils/habit-comparator';
 
 @Injectable()
 export class HabitService {
@@ -9,7 +10,8 @@ export class HabitService {
   
   async getHabits(): Promise<Array<HabitDto>> {
     try {
-      const habits = await prisma.habit.findMany();
+      let habits: Array<HabitDto> = await prisma.habit.findMany();
+      habits = habits.sort(habitComparator);
       return habits;
     } catch (e) {
       this.logger.error(e);
