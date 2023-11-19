@@ -41,7 +41,8 @@
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start | nest start --watch --path ./habit-tracker/tsconfig.json",
     "nest": "nest start --watch --path ./habit-tracker/tsconfig.json",
-    "build": "react-scripts build",
+    "build:dev": "webpack --env mode=development",
+    "build:prod": "webpack --env mode=production",
     "lint": "eslint -- ./*.ts",
     "lint:fix": "eslint --fix -- ./*.ts ",
     "generate-prisma": "npx prisma generate --schema=./habit-tracker/prisma/schema.prisma",
