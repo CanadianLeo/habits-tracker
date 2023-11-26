@@ -1,60 +1,26 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import path from 'path';
-import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import 'webpack-dev-server';
 
-type Mode = 'production' | 'development';
+import webpack from 'webpack';
+import path from 'path';
+import { buildWebpack } from './config/build/buildWebpack';
+import { BuildMode, BuildPaths } from './config/build/types/types';
+
 
 interface EnvVariables {
-  mode: Mode;
+  mode: BuildMode;
+  port: number;
 }
 
 export default (env: EnvVariables) => {
-
-  const isDev = env.mode === 'development';
-
-  const config: webpack.Configuration = {
-    mode: env.mode ?? 'development',
+  const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
-    output: {
-      path: path.resolve(__dirname, 'build'),
-      filename: 'main.js',
-      clean: true
-    },
-    plugins: [
-      new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }),
-      new MiniCssExtractPlugin()
-    ],
-    module: {
-      rules: [
-        {
-          test: /\.s[ac]ss$/i,
-          use: [
-            MiniCssExtractPlugin.loader,
-            "css-loader",
-            "sass-loader",
-          ],
-        },
-        {
-          test: /\.tsx?$/,
-          use: 'ts-loader',
-          exclude: /node_modules/,
-        },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/resource',
-        },
-      ],
-    },
-    resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
-    },
-    devtool: isDev && 'inline-source-map',
-    devServer: isDev ? {
-      port: 3000,
-      open: true
-    } : undefined
+    output: path.resolve(__dirname, 'build'),
+    html: path.resolve(__dirname, 'public', 'index.html'),
+    src: path.resolve(__dirname, 'src'), 
   }
+  const config: webpack.Configuration = buildWebpack({
+    port: env.port ?? 3000,
+    mode: env.mode ?? 'development',
+    paths
+  });
   return config;
 };

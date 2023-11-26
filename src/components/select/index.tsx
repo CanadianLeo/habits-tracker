@@ -2,12 +2,7 @@ import { useFormContext } from 'react-hook-form';
 import { SelectProps } from './types';
 import styles from './styles.module.scss';
 
-export const Select = <T,>({
-  defaultItem,
-  renderValue,
-  keyValue,
-  items,
-}: SelectProps<T>) => {
+export const Select = <T,>({ defaultItem, renderValue, keyValue, items }: SelectProps<T>) => {
   const { register } = useFormContext();
   return (
     <select
@@ -16,9 +11,7 @@ export const Select = <T,>({
       defaultValue={String(defaultItem[renderValue])}
     >
       {items.map((item: T) => (
-        <option key={String(item[keyValue])}>
-          {String(item[renderValue])}
-        </option>
+        <option key={String(item[keyValue])}>{String(item[renderValue])}</option>
       ))}
     </select>
   );

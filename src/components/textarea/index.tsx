@@ -1,6 +1,6 @@
 import cn from 'classnames';
-import { useFormContext } from "react-hook-form";
-import { TextareaProps } from "./types";
+import { useFormContext } from 'react-hook-form';
+import { TextareaProps } from './types';
 import styles from './styles.module.scss';
 
 export const Textarea = ({ id, placeholder }: TextareaProps) => {
@@ -10,17 +10,11 @@ export const Textarea = ({ id, placeholder }: TextareaProps) => {
       <textarea
         {...register(id, { required: true })}
         placeholder={placeholder}
-        className={cn(
-          styles.input,
-          styles.textarea
-        )}
+        className={cn(styles.input, styles.textarea)}
       />
-      <label
-        className={styles.label}
-        htmlFor={id}
-      >
+      <label className={styles.label} htmlFor={id}>
         {placeholder}
       </label>
     </div>
-  )
-}
+  );
+};

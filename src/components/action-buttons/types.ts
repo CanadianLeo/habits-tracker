@@ -1,4 +1,4 @@
-import { Colors } from '../../constants';
+import { Colors } from '../../constants/constants';
 
 export type ActionButtonsProps = {
   habitId: string;

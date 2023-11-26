@@ -1,4 +1,4 @@
-import { Colors, Icons } from "./constants";
+import { Colors, Icons } from 'constants/constants';
 
 export type Habit = {
   id: string;

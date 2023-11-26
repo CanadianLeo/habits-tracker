@@ -2,15 +2,8 @@ import cn from 'classnames';
 import { useRef, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useOnClickOutside } from 'usehooks-ts';
-import { Icon } from '../icon';
-import {
-  Colors,
-  ColorsList,
-  IconsList,
-  DEFAULT_COLOR,
-  Icons,
-  DEFAULT_ICON,
-} from '../../constants';
+import { Icon } from 'components/icon';
+import { Colors, ColorsList, IconsList, DEFAULT_COLOR, Icons, DEFAULT_ICON } from 'constants/constants';
 import { COLORS_TITLE, ICONS_TITLE } from './constants';
 import styles from './styles.module.scss';
 
@@ -40,52 +33,29 @@ export const IconPicker = () => {
 
   return (
     <div ref={ref} className={styles.container}>
-      <div
-        onClick={onClickHandler}
-        className={styles['main-icon']}
-      >
-        <Icon
-          iconName={currentIcon}
-          color={currentColor}
-          size="medium"
-        />
+      <div onClick={onClickHandler} className={styles['main-icon']}>
+        <Icon iconName={currentIcon} color={currentColor} size='medium' />
       </div>
       {show && (
         <div className={styles.dropdown}>
-          <h4 className={styles.title}>
-            {COLORS_TITLE}
-          </h4>
-          <div
-            className={styles['dropdown-list-container']}
-          >
-            {ColorsList.map((item) => (
+          <h4 className={styles.title}>{COLORS_TITLE}</h4>
+          <div className={styles['dropdown-list-container']}>
+            {ColorsList.map(item => (
               <div
                 key={item}
-                className={cn(
-                  styles.color,
-                  styles[
-                  item === currentColor ? 'picked' : ''
-                  ]
-                )}
+                className={cn(styles.color, styles[item === currentColor ? 'picked' : ''])}
                 onClick={() => onChangeColorHandler(item)}
               >
-                <Icon iconName="" color={item} size="small" />
+                <Icon iconName='' color={item} size='small' />
               </div>
             ))}
           </div>
-          <h4 className={styles.title}>
-            {ICONS_TITLE}
-          </h4>
-          <div
-            className={styles['dropdown-list-container']}
-          >
-            {IconsList.map((item) => (
+          <h4 className={styles.title}>{ICONS_TITLE}</h4>
+          <div className={styles['dropdown-list-container']}>
+            {IconsList.map(item => (
               <div
                 key={item}
-                className={cn(
-                  styles.icon,
-                  styles[item === currentIcon ? 'picked' : '']
-                )}
+                className={cn(styles.icon, styles[item === currentIcon ? 'picked' : ''])}
                 onClick={() => onChangeIconHandler(item)}
               >
                 <Icon iconName={item} />

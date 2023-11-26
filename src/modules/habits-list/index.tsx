@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchHabits } from '../../store/action-creators/habits';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { NewHabit } from '../../components/new-habit';
-import { List } from '../../components/list';
-import { Header } from '../../components/habits-list-header';
-import { stateSelector } from '../../store/selectors';
+import { fetchHabits } from 'store/action-creators/habits';
+import { useTypedSelector } from 'hooks/use-typed-selector';
+import { NewHabit } from 'components/new-habit';
+import { List } from 'components/list';
+import { Header } from 'components/habits-list-header';
+import { stateSelector } from 'store/selectors';
 import styles from './styles.module.scss';
 
 export const HabitsList = () => {
@@ -36,10 +36,7 @@ export const HabitsList = () => {
     <div className={styles.container}>
       <Header onButtonClick={onButtonClick} />
       {newHabitShow && <NewHabit onClose={onClose} />}
-      {loading ?
-        <div>Habits are loadings</div>
-        : error || <List habits={habits} />}
-
+      {loading ? <div>Habits are loadings</div> : error || <List habits={habits} />}
     </div>
   );
 };
