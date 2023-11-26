@@ -6,5 +6,5 @@ export const FIELDS = {
   description: {
     id: 'description',
     placeholder: 'Habit description',
-  }
-}
+  },
+};

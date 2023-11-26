@@ -1,4 +1,4 @@
-import { Api } from "./Api";
-import { BASE_URL } from "./constants";
+import { Api } from './Api';
+import { BASE_URL } from './constants';
 
-export const api = new Api({baseUrl: BASE_URL});
+export const api = new Api({ baseUrl: BASE_URL });

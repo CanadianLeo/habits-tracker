@@ -1,5 +1,5 @@
-import { api } from "../../../api";
-import { Habit } from "../../../types";
+import { api } from 'api';
+import { Habit } from 'types/types';
 
 export const fetchEditHabit = async (habit: Habit) => {
   try {
@@ -9,4 +9,4 @@ export const fetchEditHabit = async (habit: Habit) => {
     // TODO: add NetworkException
     console.log(e);
   }
-}
+};

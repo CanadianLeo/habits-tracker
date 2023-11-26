@@ -1,4 +1,4 @@
-import { Habit } from "../types";
+import { Habit } from './types';
 
 export enum ActionTypes {
   FETCH_HABITS = 'FETCH_HABITS',

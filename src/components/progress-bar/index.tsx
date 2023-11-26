@@ -1,27 +1,16 @@
 import cn from 'classnames';
+import colors from 'constants/colors.module.scss';
 import { BiMinus, BiPlus } from 'react-icons/bi';
 import { ProgressBarProps } from './types';
-import colors from '../../colors.module.scss';
 import styles from './styles.module.scss';
 
-export const ProgressBar = ({
-  title,
-  value,
-  color,
-  onClickIncrement,
-  onClickDecrement,
-}: ProgressBarProps) => {
+export const ProgressBar = ({ title, value, color, onClickIncrement, onClickDecrement }: ProgressBarProps) => {
   const filledStyles = {
     width: `${value}%`,
   };
   return (
-    <div
-      className={cn(
-        styles.container,
-        colors[`border-${color}`]
-      )}
-    >
-      {onClickDecrement &&
+    <div className={cn(styles.container, colors[`border-${color}`])}>
+      {onClickDecrement && (
         <div
           className={cn(
             styles['decrement-button'],
@@ -33,17 +22,10 @@ export const ProgressBar = ({
         >
           <BiMinus />
         </div>
-      }
-      <div
-        style={filledStyles}
-        className={cn(
-          styles.container,
-          styles['filled'],
-          colors[`${color}`]
-        )}
-      />
+      )}
+      <div style={filledStyles} className={cn(styles.container, styles['filled'], colors[`${color}`])} />
       <div className={styles.title}>{title}</div>
-      {onClickIncrement &&
+      {onClickIncrement && (
         <div
           className={cn(
             styles['increment-button'],
@@ -55,7 +37,7 @@ export const ProgressBar = ({
         >
           <BiPlus />
         </div>
-      }
+      )}
     </div>
   );
 };

@@ -1,6 +1,5 @@
-import { DEFAULT_COLOR, DEFAULT_ICON } from '../../constants';
+import { DEFAULT_COLOR, DEFAULT_ICON } from 'constants/constants';
 import { Period } from './types';
-
 
 export const PERIODS: Array<Period> = [
   {
@@ -35,4 +34,4 @@ export const NEW_HABIT_FORM_DEFAULT_VALUES = {
   period: PERIODS[0],
   color: DEFAULT_COLOR,
   icon: DEFAULT_ICON,
-}
+};

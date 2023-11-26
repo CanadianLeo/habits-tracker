@@ -1,8 +1,8 @@
 import { ChangeEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { Select } from '../select';
-import { PERIODS } from '../new-habit/constants';
-import { Period } from '../new-habit/types';
+import { Select } from 'components/select';
+import { PERIODS } from 'components/new-habit/constants';
+import { Period } from 'components/new-habit/types';
 import { REPEAT_CONTEXT, TIMES_A } from './constants';
 import styles from './styles.module.scss';
 
@@ -12,10 +12,7 @@ export const Periods = () => {
   const onChangeHandle = (event: ChangeEvent<HTMLInputElement>) => {
     // Delete all characters that are not numbers
     const value = getValues('count').replace(/\D/g, '');
-    setValue(
-      'count',
-      event.target.validity.valid ? event.target.value : value
-    );
+    setValue('count', event.target.validity.valid ? event.target.value : value);
   };
 
   return (
@@ -23,7 +20,7 @@ export const Periods = () => {
       {REPEAT_CONTEXT}
       <input
         className={styles.input}
-        pattern="[0-9]*"
+        pattern='[0-9]*'
         {...register('count', {
           required: true,
           pattern: /[0-9]*/,
@@ -31,12 +28,7 @@ export const Periods = () => {
         })}
       />
       {TIMES_A}
-      <Select<Period>
-        items={PERIODS}
-        defaultItem={PERIODS[0]}
-        renderValue="name"
-        keyValue="id"
-      />
+      <Select<Period> items={PERIODS} defaultItem={PERIODS[0]} renderValue='name' keyValue='id' />
     </div>
   );
 };

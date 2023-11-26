@@ -52,7 +52,9 @@
   left: 0;
   padding: 10px;
   transform-origin: 0 0;
-  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+  transition:
+    opacity 0.15s ease-in-out,
+    transform 0.15s ease-in-out;
 }
 
 .floating .input::-moz-placeholder {
@@ -68,8 +70,8 @@
   padding-bottom: 0.625rem;
 }
 
-.floating .input:focus~.label,
-.floating .input:not(:placeholder-shown)~.label {
+.floating .input:focus ~ .label,
+.floating .input:not(:placeholder-shown) ~ .label {
   transform: scale(0.65) translateY(-23px) translateX(0.15rem);
   background-color: #fff;
   padding: 0 5px;

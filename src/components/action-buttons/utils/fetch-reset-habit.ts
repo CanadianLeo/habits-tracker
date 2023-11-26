@@ -1,4 +1,4 @@
-import { api } from "../../../api";
+import { api } from 'api';
 
 export const fetchResetHabit = async (habitId: string) => {
   try {
@@ -8,4 +8,4 @@ export const fetchResetHabit = async (habitId: string) => {
     // TODO: add NetworkException
     console.log(e);
   }
-}
+};

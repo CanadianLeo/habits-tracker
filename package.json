@@ -28,6 +28,7 @@
     "react-hook-form": "^7.42.1",
     "react-icons": "^4.9.0",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^6.20.0",
     "react-scripts": "^3.0.1",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
@@ -43,6 +44,7 @@
     "build:prod": "webpack --env mode=production",
     "lint": "eslint -- ./*.ts",
     "lint:fix": "eslint --fix -- ./*.ts ",
+    "prettify": "prettier --write --config ./.prettierrc ./src",
     "generate-prisma": "npx prisma generate --schema=./habit-tracker/prisma/schema.prisma",
     "generate-api": "sta -p ./src/api/swagger.json -o ./src/api/"
   },

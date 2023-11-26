@@ -1,7 +1,7 @@
-import { FieldValues } from "react-hook-form";
-import { DEFAULT_COLOR, DEFAULT_ICON } from "../../../constants";
-import { Habit } from "../../../types";
-import { getUniqueId } from "../../../utils/get-unique-id";
+import { FieldValues } from 'react-hook-form';
+import { DEFAULT_COLOR, DEFAULT_ICON } from 'constants/constants';
+import { Habit } from 'types/types';
+import { getUniqueId } from 'utils/get-unique-id';
 
 export const newHabitMapper = (data: FieldValues, habitid?: string): Habit => ({
   id: habitid ?? getUniqueId(),

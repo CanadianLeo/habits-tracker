@@ -1,11 +1,11 @@
-import { HabitCard } from '../habit-card';
+import { HabitCard } from 'components/habit-card';
 import { ListProps } from './types';
 import style from './styles.module.scss';
 
 export const List = ({ habits }: ListProps) => {
   return (
     <div className={style.container}>
-      {habits.map((item) => (
+      {habits.map(item => (
         <HabitCard
           id={item.id}
           key={item.id}

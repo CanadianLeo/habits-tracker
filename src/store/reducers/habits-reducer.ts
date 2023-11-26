@@ -1,10 +1,10 @@
-import { ActionTypes, HabitsAction, HabitState } from "../../types/habitsReducerTypes";
+import { ActionTypes, HabitsAction, HabitState } from 'types/habits-reducer-types';
 
 const initialState: HabitState = {
   loading: false,
   error: null,
-  habits: []
-}
+  habits: [],
+};
 
 export const habitsReducer = (state = initialState, action: HabitsAction): HabitState => {
   switch (action.type) {
@@ -12,20 +12,20 @@ export const habitsReducer = (state = initialState, action: HabitsAction): Habit
       return {
         ...state,
         loading: true,
-      }
+      };
     case ActionTypes.FETCH_HABITS_SUCCESS:
       return {
         ...state,
         loading: false,
         habits: action.payload,
-      }
+      };
     case ActionTypes.FETCH_HABITS_FAILED:
       return {
         ...state,
         loading: false,
         error: action.payload,
-      }
+      };
     default:
       return state;
   }
-}
+};
