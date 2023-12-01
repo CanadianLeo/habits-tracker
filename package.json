@@ -38,7 +38,7 @@
     "usehooks-ts": "^2.9.1"
   },
   "scripts": {
-    "start": "webpack serve --env mode=development | nest start --watch --path ./habit-tracker/tsconfig.json",
+    "start": "webpack serve --env mode=development",
     "nest": "nest start --watch --path ./habit-tracker/tsconfig.json",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",

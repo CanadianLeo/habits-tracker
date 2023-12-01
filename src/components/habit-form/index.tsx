@@ -6,6 +6,7 @@ import { Periods } from 'components/periods';
 import { HabitFormProps } from './types';
 import { FIELDS } from './constants';
 import styles from './styles.module.scss';
+import { Button } from 'components/button';
 
 export const HabitForm = ({ onSubmit, title, onSubmitButtonTitle }: HabitFormProps) => {
   const { handleSubmit } = useFormContext();
@@ -18,7 +19,7 @@ export const HabitForm = ({ onSubmit, title, onSubmitButtonTitle }: HabitFormPro
       </div>
       <Textarea {...FIELDS.description} />
       <Periods />
-      <input type='submit' value={onSubmitButtonTitle} className={styles['submit-button']} />
+      <Button title={onSubmitButtonTitle} className={styles['submit-button']} />
     </form>
   );
 };

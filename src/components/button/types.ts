@@ -6,4 +6,5 @@ export type ButtonProps = {
   color?: Colors;
   title?: string;
   icon?: ReactNode;
+  className?: string;
 };
