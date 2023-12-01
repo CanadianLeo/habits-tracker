@@ -1,11 +1,12 @@
 import path from "path";
 import { Configuration } from "webpack";
 
-const PROJECT_ROOT_PATH = path.resolve(__dirname, '../');
+const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SRC_DIR_PATH = `${PROJECT_ROOT_PATH}/src`;
 
 export const buildResolver = (): Configuration['resolve'] => ({
   extensions: ['.tsx', '.ts', '.js'],
+  preferRelative: true,
   alias: {
     'api': `${SRC_DIR_PATH}/api`,
     'components': `${SRC_DIR_PATH}/components`,

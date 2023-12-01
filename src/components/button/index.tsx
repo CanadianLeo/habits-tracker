@@ -4,9 +4,9 @@ import { Colors } from 'constants/constants';
 import { ButtonProps } from './types';
 import styles from './styles.module.scss';
 
-export const Button = ({ title, icon, onClick, color = Colors.color1 }: ButtonProps) => {
+export const Button = ({ title, icon, onClick, color = Colors.color1, className }: ButtonProps) => {
   return (
-    <button className={cn(styles['button'], colors[`border-${color}`], colors[`${color}-hovered`])} onClick={onClick}>
+    <button className={cn(className, styles['button'], colors[`border-${color}`], colors[`${color}-hovered`])} onClick={onClick}>
       {icon}
       {title}
     </button>
