@@ -5,6 +5,7 @@ import { useTypedSelector } from 'hooks/use-typed-selector';
 import { NewHabit } from 'components/new-habit';
 import { List } from 'components/list';
 import { Header } from 'components/habits-list-header';
+import { Text } from 'components/text';
 import { stateSelector } from 'store/selectors';
 import styles from './styles.module.scss';
 
@@ -36,7 +37,7 @@ export const HabitsList = () => {
     <div className={styles.container}>
       <Header onButtonClick={onButtonClick} />
       {newHabitShow && <NewHabit onClose={onClose} />}
-      {loading ? <div>Habits are loadings</div> : error || <List habits={habits} />}
+      {loading ? <Text>Habits are loadings</Text> : <Text>{error}</Text> || <List habits={habits} />}
     </div>
   );
 };
