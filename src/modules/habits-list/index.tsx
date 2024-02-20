@@ -37,7 +37,7 @@ export const HabitsList = () => {
     <div className={styles.container}>
       <Header onButtonClick={onButtonClick} />
       {newHabitShow && <NewHabit onClose={onClose} />}
-      {loading ? <Text>Habits are loadings</Text> : <Text>{error}</Text> || <List habits={habits} />}
+      {loading ? <Text>Habits are loadings</Text> : error ? <Text>{error}</Text> : <List habits={habits} />}
     </div>
   );
 };
