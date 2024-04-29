@@ -1,43 +1,44 @@
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchHabits } from 'store/action-creators/habits';
+import { stateSelector } from 'store/selectors';
 import { useTypedSelector } from 'hooks/use-typed-selector';
+import { useLoader } from 'hooks/use-loader';
+import { Header } from 'components/habits-list-header';
 import { NewHabit } from 'components/new-habit';
 import { List } from 'components/list';
-import { Header } from 'components/habits-list-header';
 import { Text } from 'components/text';
-import { stateSelector } from 'store/selectors';
 import styles from './styles.module.scss';
 
 export const HabitsList = () => {
-  const [newHabitShow, setNewHabitShow] = useState(false);
-  const { habits, error, loading } = useTypedSelector(stateSelector);
+  const [showNewHabitModal, setShowNewHabitModal] = useState(false);
+  const { habits, error } = useTypedSelector(stateSelector);
+  const { withLoader } = useLoader();
   const dispatch = useDispatch();
 
   // use becouse UseEffect called twice in React 18
   const reloadLock = useRef(true);
 
   const onButtonClick = () => {
-    setNewHabitShow(!newHabitShow);
+    setShowNewHabitModal(!showNewHabitModal);
   };
   const onClose = () => {
-    setNewHabitShow(false);
+    setShowNewHabitModal(false);
   };
 
   useEffect(() => {
     if (reloadLock.current) {
       reloadLock.current = false;
-
       // strange bug with @types/react
-      dispatch<any>(fetchHabits());
+      withLoader(dispatch<any>(fetchHabits()));
     }
   }, [dispatch]);
 
   return (
     <div className={styles.container}>
       <Header onButtonClick={onButtonClick} />
-      {newHabitShow && <NewHabit onClose={onClose} />}
-      {loading ? <Text>Habits are loadings</Text> : error ? <Text>{error}</Text> : <List habits={habits} />}
+      {showNewHabitModal && <NewHabit onClose={onClose} />}
+      { error ? <Text>{error}</Text> : <List habits={habits} />}
     </div>
   );
 };

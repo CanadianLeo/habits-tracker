@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchHabits } from 'store/action-creators/habits';
+import { useLoader } from 'hooks/use-loader';
 import { Icon } from 'components/icon';
 import { ProgressBar } from 'components/progress-bar';
 import { ActionButtons } from 'components/action-buttons';
@@ -11,19 +12,20 @@ import styles from './styles.module.scss';
 
 export const HabitCard = ({ id, title, icon, currentValue, targetValue, color }: HabitCardProps) => {
   const dispatch = useDispatch();
+  const { withLoader } = useLoader();
   const progressBarTitle = useMemo(() => `${currentValue}/${targetValue}`, [currentValue, targetValue]);
   const progressBarValue = useMemo(() => currentValue / (targetValue / 100), [currentValue, targetValue]);
 
   const onClickIncrementHandler = async () => {
-    fetchIncrementHabit(id).then(() => {
-      dispatch<any>(fetchHabits());
-    });
+    withLoader(fetchIncrementHabit(id).then(async() => {
+      await dispatch<any>(fetchHabits());
+    }));
   };
 
   const onClickDecrementHandler = async () => {
-    fetchDecrementHabit(id).then(() => {
-      dispatch<any>(fetchHabits());
-    });
+    withLoader(fetchDecrementHabit(id).then(async() => {
+      await dispatch<any>(fetchHabits());
+    }));
   };
 
   return (
